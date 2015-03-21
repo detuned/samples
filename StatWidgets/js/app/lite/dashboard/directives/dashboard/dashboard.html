@@ -1,0 +1,104 @@
+<div class="dashboard page-body">
+
+
+	<div class="block">
+		<div class="content">
+			<div class="cells-row cells-row_places-3">
+				<div class="cell cell_single">
+					<div class="osb-wx cell__content_padded" data-widget="report" data-vz="counter" data-counter=":" data-report="online" data-update-interval="5" data-skin="orange"></div>
+				</div>
+				<div class="cell cell_double">
+					<div class="osb-wx" data-widget="report" data-vz="columnchart" data-vz-settings="{ legend: false, highlightLast : true }" data-counter=":" data-report="hits" data-update-interval="30" data-title="Посещаемость за сутки"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="block block_highlighted">
+		<div class="content">
+			<div class="cells-row cells-row_places-2">
+				<div class="cell cell_single">
+					<div class="osb-wx" data-widget="report" data-vz="columnchart" data-counter=":" data-update-interval="30" data-report="hits_per_user" data-vz-settings="{height:240, legend:0,colorsShift:2,xAxisShowFirstLabel:false,xAxisShowLastLabel:false}" data-by="day" data-title="Хитов на пользователя за сутки"></div>
+				</div>
+				<div class="cell cell_single">
+					<div class="osb-wx" data-widget="report" data-vz="columnchart" data-counter=":" data-update-interval="30" data-report="sessions_per_durationbins" data-vz-settings="{height:240, legend:0,colorsShift:1,xAxisShowFirstLabel:false,xAxisShowLastLabel:false}" data-by="day" data-title="Длительность сессий за сутки"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="block">
+		<div class="content">
+			<div class="cells-row">
+				<div class="cell">
+					<div class="osb-wx" data-widget="report" data-vz="linechart" data-counter=":" data-report="rkn" data-vz-settings="{height:240,tooltipTimeFormat: 'D MMM', xAxisLabelFormat: 'DD.MM'}" data-title="Уникальные посетители за месяц"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="block">
+		<div class="content">
+			<div class="cells-row">
+				<div class="cell">
+					<div class="osb-wx" data-widget="report" data-vz="linechart" data-counter=":" data-update-interval="30" data-report="visitors" data-vz-settings="{legend:0,height:240,highlightLast:true }" data-title="Уникальные посетители за сутки"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="block">
+		<div class="content">
+			<div class="cells-row  cells-row_places-2">
+				<div class="cell cell_single">
+					<div class="osb-wx" data-widget="report" data-vz="table" data-counter=":" data-update-interval="30" data-report="hits_top_page"></div>
+				</div>
+				<div class="cell cell_single">
+					<div class="osb-wx" data-widget="report" data-vz="table" data-counter=":" data-update-interval="30" data-report="hits_ref_host"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="block">
+		<div class="content">
+			<div class="cells-row cells-row_places-2">
+				<div class="cell cell_single">
+					<div class="osb-wx" data-widget="report" data-vz="columnchart" data-counter=":" data-report="hits_country" data-update-interval="30" data-vz-settings="{maxSeries: 3, colorsShift:2, xAxisShowFirstLabel:false,xAxisShowLastLabel:false }"></div>
+				</div>
+				<div class="cell cell_single">
+					<div class="osb-wx" data-widget="report" data-vz="linechart" data-counter=":" data-report="hits_city" data-update-interval="30" data-vz-settings="{maxSeries: 3, colorsShift:1,highlightLast:true}"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="block block_highlighted">
+		<div class="content">
+			<div class="cells-row cells-row_places-3">
+				<div class="cell cell_single">
+					<div class="osb-wx" data-widget="report" data-vz="columnchart" data-counter=":" data-update-interval="30" data-report="hits_os" data-vz-settings="{colorsShift:3, dataType:'dynamic',maxPoints:1,legendAlign:'right', legendLayout:'vertical', legendVerticalAlign : 'top', seriesStacking:'percent', legendWidth: 150, xAxisLabels : false }" data-by="day"></div>
+				</div>
+				<div class="cell cell_single">
+					<div class="osb-wx" data-widget="report" data-vz="columnchart" data-counter=":" data-update-interval="30" data-report="hits_browser" data-vz-settings="{colorsShift:4, dataType:'dynamic',maxPoints:1,legendAlign:'right', legendLayout:'vertical',legendVerticalAlign : 'top', seriesStacking:'percent', legendWidth: 150, xAxisLabels : false }" data-by="day"></div>
+				</div>
+				<div class="cell cell_single">
+					<div class="osb-wx" data-widget="report" data-vz="columnchart" data-counter=":" data-update-interval="30" data-report="hits_device_vendor" data-vz-settings="{colorsShift:5, dataType:'dynamic',maxPoints:1,legendAlign:'right', legendLayout:'vertical', legendVerticalAlign : 'top', seriesStacking:'percent', legendWidth: 150, xAxisLabels : false }" data-by="day"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="block">
+		<div class="content">
+			<div class="cells-row">
+				<div class="cell">
+					<div class="osb-wx" data-widget="report" data-vz="columnchart" data-counter=":" data-update-interval="30" data-report="hits_language" data-vz-settings="{colorsShift:2, dataType:'dynamic', chartType: 'bar', maxPoints : 1, height:200, seriesStacking: 'percent', xAxisLabels : false}"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

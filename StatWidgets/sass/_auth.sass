@@ -1,0 +1,72 @@
+.auth
+	padding: 40px
+	text-align: center
+.auth__title
+	margin: 0 0 18px
+	font-size: 30px
+	color: #737373
+.auth-form
+	margin: 0 auto
+	width: 100%
+	max-width: 340px
+	&.auth-form_error
+		+animate(shake)
+.auth-form__fieldset_fields
+	position: relative
+	margin: 0 0 12px
+	&:after
+		display: block
+		position: absolute
+		right: 2px
+		top: 2px
+		content: ' '
+		background: url('/img/loader.gif') no-repeat center
+		width: 38px
+		height: 38px
+		opacity: 0
+		visibility: hidden
+		.auth-form_loading &
+			opacity: 1
+			visibility: visible
+.auth-form__field
+	font: inherit
+.auth-form__field_text
+	border: 1px solid #C6C6C6
+	width: 100%
+	max-width: 320px
+	font-size: 16px
+	margin: 0
+	padding: 10px
+	transition: all 0.3s ease
+	background: #FFF
+	outline: none
+	&+.auth-form__field_text
+		border-top: none
+	&.auth-form__field_error
+		background: #FFEDED
+
+
+.auth-form__field_submit
+	display: block
+	padding: 0
+	border: 1px solid rgba(0,0,0,0.01)
+	border-width: 1px 1px 0
+	box-shadow: 0 1px 1px rgba(0,0,0,0.6)
+	border-radius: 3px
+	width: 100%
+	height: 42px
+	text-align: center
+	@include background-image( linear-gradient( top,  rgb(164,218,93), rgb(113,198,3) 12px) )
+	cursor: pointer
+	text-shadow: 0 1px rgba(0,0,0,0.2)
+	font-size: 16px
+	color: #FFF
+	outline: none
+
+	&:hover
+		@include background-image( linear-gradient( top,  rgb(166,224,91), rgb(118,206,3) 12px) )
+	&:active
+		box-shadow: inset 0 1px rgba(0,0,0,0.2)
+		background: #73C606
+		outline: none
+

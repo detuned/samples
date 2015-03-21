@@ -1,0 +1,15 @@
+<header class="header">
+	<div class="content header__content" data-ng-if="!appData.user.user">
+		<span class="logo">Lite</span>
+	</div>
+	<div class="content header__content" data-ng-if="appData.user.user">
+		<div class="header__aside">
+			<div class="user">
+				<a class="user__name" href="{{appData.masterSiteUrl}}/account" data-ng-bind="appData.user.user"></a>
+				<a class="user__logout" href="{{appData.masterSiteUrl}}/logout/" data-ng-click="logout( $event )">Выход</a>
+			</div>
+		</div>
+		<a class="logo" href="{{appData.masterSiteUrl}}">Lite</a>
+		<div data-counter-selector data-counters="appData.counters" data-counter-id="appData.counter"></div>
+	</div>
+</header>

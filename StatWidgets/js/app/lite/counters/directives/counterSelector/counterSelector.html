@@ -1,0 +1,11 @@
+<div class="counter-selector" data-ng-class="{ 'counter-selector_active': isActive }">
+	<span class="counter-selector__head" data-ng-bind="getCounterTitle(counter)" data-ng-click="isActive = ! isActive"></span>
+	<div class="counter-selector__body">
+		<div class="counter-selector__list">
+			<div data-ng-repeat="c in counters" class="counter-selector__item" data-ng-class="{ 'counter-selector__item_active' : counter.id === c.id }" data-ng-click="selectCounter( c )">
+				<span class="counter-selector__title" data-ng-bind="getCounterTitle(c)"></span>
+				<span class="counter-selector__subtitle" data-ng-bind="getCounterSubTitle(c)" data-ng-hide=" ! getCounterSubTitle(c) "></span>
+			</div>
+		</div>
+	</div>
+</div>

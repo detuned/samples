@@ -1,0 +1,17 @@
+<div class="auth">
+	<h2 class="auth__title">Вход для клиентов</h2>
+
+	<form class="auth__form auth-form" data-ng-class="{
+	'auth-form_loading':state.loading,
+	'auth-form_accepted':state.accepted,
+	'auth-form_error':state.error
+	}" name="authForm" data-ng-submit="submit()">
+		<fieldset class="auth-form__fieldset auth-form__fieldset_fields">
+			<input type="text" name="login" data-ng-model="data.login" class="auth-form__field auth-form__field_text auth-form__field_login" placeholder="Логин" autofocus data-ng-class="{'auth-form__field_error':state.accepted && authForm.login.$invalid}" data-ng-click="releaseError()"/>
+			<input type="password" name="password" data-ng-model="data.password" class="auth-form__field auth-form__field_text auth-form__field_password" placeholder="Пароль" data-ng-class="{'auth-form__field_error':state.accepted && authForm.password.$invalid}" data-ng-click="releaseError()"/>
+		</fieldset>
+		<fieldset class="auth-form__fieldset auth-form__fieldset_submit">
+			<input type="submit" class="auth-form__field auth-form__field_submit" value="Войти"/>
+		</fieldset>
+	</form>
+</div>

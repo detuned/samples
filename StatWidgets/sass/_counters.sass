@@ -1,0 +1,84 @@
+$counter_selector_width: 350px
+$counter_selector_bg: #282828
+
+.counter-selector
+	+ibt
+	margin: 0 0 0 60px
+	position: relative
+	width: $counter_selector_width
+	background: $header_bg
+	text-align: left
+
+.counter-selector__head
+	+ibt
+	height: $header_height
+	line-height: $header_height
+	max-width: $counter_selector_width
+	overflow: hidden
+	padding: 0 20px
+	font-size: 24px
+	text-shadow: 0 1px #000
+	background: lighten( $counter_selector_bg, 5% )
+	cursor: pointer
+	+box-sizing(border-box)
+	
+	&:active,
+	.counter-selector_active &
+		box-shadow: inset 0 0 4px rgba(0,0,0,0.8)
+
+	&:hover
+		background: lighten($counter_selector_bg, 10%)
+.counter-selector__body
+	position: absolute
+	top: -500px
+	left: 0
+	z-index: -1
+	width: $counter_selector_width
+	max-height: 280px
+	background: $counter_selector_bg
+	overflow-x: hidden
+	overflow-y: auto
+	+transition( top 0.5s ease-out )
+	box-shadow: 0 4px 10px rgba(0,0,0,0.2)
+	color: #FFF
+
+.counter-selector__item
+	height: 40px
+	line-height: 40px
+	padding: 0 20px
+	white-space: nowrap
+	overflow: hidden
+	cursor: pointer
+	&:hover
+		background: #000
+	&:last-child
+		padding-bottom: 5px
+	&.counter-selector__item_active,
+	&.counter-selector__item_active:hover
+		cursor: default
+		background: #FFFCC6
+		box-shadow: inset 0 0 2px rgba(0,0,0,0.3)
+		color: #000
+
+.counter-selector__title
+	+ibm
+.counter-selector__subtitle
+	+ibm
+	opacity: 0.5
+	font-size: 0.9em
+	&:before
+		margin: 0 3px 0 1px
+		content: '\2014'
+
+
+
+.counter-selector_active
+	.counter-selector__head
+		background: lighten($counter_selector_bg, 15%)
+	.counter-selector__body
+		top: 100%
+
+
+
+
+

@@ -1,0 +1,87 @@
+@font-face {
+	font-family: 'lektonregular';
+	src: url('fonts/lekton-regular-webfont.eot');
+	src: url('fonts/lekton-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/lekton-regular-webfont.woff') format('woff'),
+	url('fonts/lekton-regular-webfont.ttf') format('truetype'),
+	url('fonts/lekton-regular-webfont.svg#lektonregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+	}
+.osb-wx-vz-counter{
+	position:relative;
+	}
+.osb-wx-vz-counter-e-core{
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	margin:auto;
+	height:120px;
+	text-align:center;
+	}
+.osb-wx-vz-counter-e-value{
+	font-size:72px;
+	white-space:nowrap;
+	font-family: 'lektonregular', sans-serif;
+	}
+.osb-wx-vz-counter-e-caption{
+	margin:-12px 0 36px;
+	font-size:18px;
+	opacity:0.6;
+	}
+
+/* Sub arguments*/
+	.osb-wx-vz-counter-e-subs{
+		position:absolute;
+		right:0;
+		bottom:20px;
+		left:0;
+		text-align:center;
+		/*background:rgba(255, 255, 255, 0.1);*/
+		}
+	.osb-wx-vz-counter-e-sub{
+		position:relative;
+		display:inline-block;
+		width:30%;
+		min-width:80px;
+		padding:6px 0;
+		vertical-align:middle;
+		}
+		/*.osb-wx-vz-counter-e-sub:first-child:after{
+			display:block;
+			position:absolute;
+			top:0;
+			right:0;
+			bottom:0;
+			width:1px;
+			background:rgba(0, 0, 0, 0.05);
+			content:' ';
+			}*/
+	.osb-wx-vz-counter-e-subvalue{
+		font-size:16px;
+		opacity:0.7;
+		}
+		/*.osb-wx-vz-counter-e-subvalue:after{
+			content:' — ';
+			}*/
+
+	.osb-wx-vz-counter-e-subcaption{
+		font-size:11px;
+		text-align:center;
+		opacity:0.5;
+		}
+
+/*Skin:orange*/
+.osb-wx-vz-counter-m-skin-orange{
+	background:orange;
+	color:#FFF;
+	}
+	.osb-wx-vz-counter-m-skin-orange .osb-wx-vz-counter-e-value{
+		text-shadow:0 1px rgba(0,0,0,0.1);
+		}
+	.osb-wx-vz-counter-m-skin-orange .osb-wx-vz-counter-e-caption{
+		opacity:0.8;
+		}
