@@ -1,0 +1,3 @@
+Advanced website WYSIWYG-editor.
+
+Website content considered here as a set of blocks: text, images, catalog, news feed and so on. The functionality of each block is described by JS-object inheriting the basic set of logic from a common parent, and supplementing it with the required specificity.
