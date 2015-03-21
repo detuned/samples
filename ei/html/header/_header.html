@@ -1,0 +1,78 @@
+<header class="header" data-ng-class="{
+'header_with-search': searchData.isActive || searchData.query || searchData.tmpQuery || searchData.isFocused
+}">
+	<div class="content header__content">
+		<div class="content__core">
+			<div class="header__content-core">
+				<div class="header__section header__section_logo">
+					<a href="/" class="logo logo_compact" data-reload><em class="logo__prefix">Super</em><span class="logo__main">Index</span></a>
+					<div class="geo-locale-switcher" data-geo-locale-switcher><!-- @@geo_title --></div>
+				</div>
+
+				<div class="header__section header__section_chart">
+					<div data-beats-chart></div>
+				</div>
+
+				<div class="header__section header__section_stat"
+				     data-ng-class="{'header__section_stat-inactive': ! listData.news_count_total}">
+					<span class="header__digit header__digit_total">
+						<span class="header__digit-num" data-ng-bind="(listData.news_count_total || 0)|numberFormat"></span>
+						<span class="header__digit-title">news total</span>
+					</span>
+					<span class="header__digit header__digit_beat">
+						<span class="header__digit-num" data-ng-class="[ beatsStat.diff > 0 ? 'header__digit-num_diff-positive' : 'header__digit-num_diff-negative' ]">
+							<span data-ng-bind="(beatsStat.value || 0)|numberFormat"></span> beats
+						</span>
+						<span class="header__digit-title">in last 10 mins</span>
+					</span>
+				</div>
+				<div class="header__section header__section_pause">
+					<div data-pause-switcher></div>
+				</div>
+				<div class="header__search search" data-ng-class="{
+					      'search_active':searchData.isActive || searchData.query || searchData.tmpQuery || searchData.isFocused,
+					      'search_filled':searchData.tmpQuery,
+					      'search_highlighted': searchData.query
+					      }">
+					<span class="search__icon" data-ng-click="searchData.isActive = true"></span>
+					<form class="search__form"
+					      method="get"
+					      action=""
+					      data-ng-submit="search( searchData.tmpQuery )"
+						   >
+						<label class="search__label">
+							<span class="search__caption"
+							      data-ng-hide="listData.query && listData.query == searchData.tmpQuery && listData.total > 0">Search
+								on site</span>
+							<span class="search__caption"
+							      data-ng-show="listData.query && listData.query == searchData.tmpQuery && listData.total">
+								<span data-ng-bind="listData.total" class="search__caption-accent"></span>
+								<span>results found for</span>
+							      </span>
+							<span class="search__field-wrap">
+								<input type="text"
+									name="q"
+									data-ng-model="searchData.tmpQuery"
+									class="search__field"
+									autocomplete="off"
+									data-set-focus="searchData.isActive"
+									data-ng-focus="searchData.isFocused=true"
+									data-ng-blur="searchData.isFocused=false"
+									data-ng-keyup="onSearchType($event)"/>
+								<span class="search__closer icon icon_close"
+								      data-ng-click="cancelSearch( $event )"></span>
+							</span>
+						</label>
+					</form>
+				</div>
+				<div class="header__period">
+					<div class="header__period-label">
+						You’re watching live pulse
+					</div>
+					<div data-period-revolver></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="header-holder"></div>

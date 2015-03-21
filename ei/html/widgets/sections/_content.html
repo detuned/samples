@@ -1,0 +1,60 @@
+<div class="widget__form-part widget-form-part widget-form-part_radio-group">
+	<h3 class="widget-form-part__title">Period</h3>
+	<div class="widget-form-part__body">
+		<div data-widget-period-selector data-options="periods" data-model="widgetOptions.period"></div>
+
+	</div>
+</div>
+
+<div class="widget__form-part widget-form-part">
+	<h3 class="widget-form-part__title">Sources</h3>
+	<div class="widget-form-part__body">
+		<!-- @@include('widgets/sections/_hosts_filter.html') -->
+	</div>
+</div>
+
+<div class="widget__form-part widget-form-part">
+	<h3 class="widget-form-part__title">Categories</h3>
+	<div class="widget__form-item-body widget-form-part__body">
+		<div class="radio-simple">
+			<div class="radio-simple__list">
+				<div class="radio-simple__item">
+					<label class="radio-simple__field-wrap">
+						<input class="radio-simple__field" type="radio" name="themeAll" data-ng-checked="theme.all" data-ng-click="setTheme('all')"/>
+						<span class="radio-simple__field-label">All</span>
+					</label>
+				</div>
+				<div class="radio-simple__item">
+					<label class="radio-simple__field-wrap">
+						<input class="radio-simple__field" type="radio" name="themeAll" data-ng-checked="!theme.all"/>
+						<span class="radio-simple__field-label">Only selected</span>
+					</label>
+				</div>
+			</div>
+			<div class="radio-simple__related">
+				<ul class="widget__fields-group">
+					<li data-ng-repeat="t in themes" class="widget__fields-group-item" data-ng-bind="t.title" data-ng-class="{ 'widget__fields-group-item_active' : theme[t.id] }" data-ng-click="setTheme(t.id)">
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="widget__form-part widget-form-part">
+	<h3 class="widget-form-part__title">Keyword</h3>
+	<div class="widget-form-part__body">
+		<div class="widget__form-item">
+			<div class="widget__form-item-hint">
+				Type a word or part of it and widget will only display articles mentioning it. For example
+				<span
+					class="widget__form-example" data-ng-click="widgetOptions.title='President'">President</span>
+				or&nbsp;<span
+					class="widget__form-example" data-ng-click="widgetOptions.title='Dollar'">Dollar</span>.
+			</div>
+			<div>
+				<input type="text" data-ng-model="widgetOptions.title" name="title" class="widget__form-field widget__form-field_text" autocomplete="off" />
+			</div>
+		</div>
+	</div>
+</div>

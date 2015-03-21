@@ -1,0 +1,35 @@
+<section class="page-body">
+	<div class="widgets">
+		<!-- @@include('common/_back-link.html') -->
+		<div class="content">
+			<div class="content__core">
+				<h1 class="widgets__title">Create widget</h1>
+				<div class="widgets__body">
+					<div class="widgets__text">
+						Your widget is ready to use. Configure it if needed and then insert generated code at the place on your site you choose.
+					</div>
+					<div class="widgets__view">
+						<div class="widgets__aside" data-widget-aside>
+							<div class="widget-preview" data-widget-preview data-options="widgetOptions"></div>
+							<!-- @@include('widgets/sections/_code.html') -->
+						</div>
+					</div>
+					<div class="widgets__set">
+						<div class="widget__form acc-sections">
+
+							<div data-widget-form-section="size" data-title="Size" data-open data-static>
+								<!-- @@include('widgets/sections/_size.html') -->
+							</div>
+							<div data-widget-form-section="content" data-title="Content" data-static>
+								<!-- @@include('widgets/sections/_content.html') -->
+							</div>
+							<div data-widget-form-section="design" data-title="Design" data-static>
+								<!-- @@include('widgets/sections/_design.html') -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

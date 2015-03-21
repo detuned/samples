@@ -1,0 +1,24 @@
+<div class="widget__form-size radio-list radio-list_flat">
+	<label class="radio-list__item widget__form-size-item" data-ng-repeat="s in sizes" data-ng-class="[
+	s === size.value ? 'radio-list__item_selected' : '' ,
+	s.soon ? 'radio-list__item_soon' : '',
+	'widget__form-size-item_name-' + s.name
+	]">
+		<input type="radio"
+	           name="size"
+	           class="radio-list__field"
+	           data-ng-disabled="s.soon"
+	           data-ng-value="s"
+	           data-ng-model="size.value"
+	           data-ng-change="setSize(s)"
+	           autocomplete="off"
+		/>
+		<span class="radio-list__label">
+			<span class="radio-list__icon"></span>
+			<span class="radio-list__title-wrap">
+				<span class="radio-list__title" data-ng-bind="s.title"></span>
+				<span class="radio-list__soon-lable">soon</span>
+			</span>
+		</span>
+	</label>
+</div>

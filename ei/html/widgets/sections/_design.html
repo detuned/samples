@@ -1,0 +1,27 @@
+<div class="widget__form-part widget-form-part widget-form-part_select">
+	<h3 class="widget-form-part__title">Border</h3>
+	<div class="widget-form-part__body">
+		<div data-border-selector data-border-data="border" data-model="border.value" class="widget__form-border-field" data-on-select="border.onChange()"></div>
+	</div>
+</div>
+
+
+<div class="widget__form-part widget-form-part widget-form-part_select">
+	<h3 class="widget-form-part__title">Logo</h3>
+	<div class="widget-form-part__body">
+		<div class="widget__form-item widget__form-item_inline">
+			<div data-widget-header-selector data-model="widgetOptions.header"></div>
+		</div>
+	</div>
+</div>
+
+<div class="widget__form-part widget-form-part widget-form-part_select">
+	<h3 class="widget-form-part__title">Background</h3>
+	<div class="widget-form-part__body">
+		<div class="widget-inline-selects">
+			<label class="widget-inline-select">
+				<select data-ng-options="option.value as option.title for option in designPresets" data-ng-model="widgetOptions.design" class="widget-inline-select__field"></select>
+			</label>
+		</div>
+	</div>
+</div>

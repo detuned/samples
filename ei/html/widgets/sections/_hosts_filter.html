@@ -1,0 +1,68 @@
+<div class="radio-simple">
+
+	<div class="radio-simple__list">
+
+		<div class="radio-simple__item" data-ng-class="{
+			'radio-simple__item_selected': hostsFilter.mode == 'all'
+		}">
+			<label class="radio-simple__field-wrap">
+				<input class="radio-simple__field" type="radio" data-ng-model="hostsFilter.mode" value="all"/>
+				<span class="radio-simple__field-label">All</span>
+			</label>
+		</div>
+
+
+		<!--div class="radio-simple__item" data-ng-class="{
+			'radio-simple__item_selected': hostsFilter.mode == 'blackList'
+		}">
+			<label class="radio-simple__field-wrap">
+				<input class="radio-simple__field" type="radio" data-ng-model="hostsFilter.mode" value="blackList"/>
+					<span class="radio-simple__field-label">All except listed</span>
+			</label>
+		</div-->
+
+		<div class="radio-simple__item" data-ng-class="{
+			'radio-simple__item_selected': hostsFilter.mode == 'whiteList'
+		}">
+			<label class="radio-simple__field-wrap">
+				<input class="radio-simple__field" type="radio" data-ng-model="hostsFilter.mode" value="whiteList"/>
+					<span class="radio-simple__field-label">Only listed</span>
+			</label>
+		</div>
+
+	</div>
+
+
+	<div class="radio-simple__related" data-ng-show="hostsFilter.mode == 'blackList'">
+		<div class="radio-simple__item-content-main">
+			<textarea
+					name="blackList"
+					class="widget__form-field widget__form-field_textarea"
+					data-ng-model="hostsFilter.blackList"
+					data-set-focus="hostsFilter.mode == 'blackList'"
+					></textarea>
+		</div>
+		<div class="radio-simple__item-content-aside">
+			<p>List the domains of sites, one per line. For example: </p>
+			<div class="widget__form-example" data-ng-bind="hostsFilter.blackListExample"
+			     data-ng-click="hostsFilter.blackList = hostsFilter.blackListExample"></div>
+		</div>
+	</div>
+
+
+	<div class="radio-simple__related" data-ng-show="hostsFilter.mode == 'whiteList'">
+			<div class="radio-simple__item-content-main">
+				<textarea name="whiteList"
+				          class="widget__form-field widget__form-field_textarea"
+				          data-ng-model="hostsFilter.whiteList"
+				          data-set-focus="hostsFilter.mode == 'whiteList'"
+						></textarea>
+			</div>
+			<div class="radio-simple__item-content-aside">
+				<p>List the domains of sites, one per line. For example: </p>
+				<div class="widget__form-example" data-ng-bind="hostsFilter.whiteListExample"
+				     data-ng-click="hostsFilter.whiteList = hostsFilter.whiteListExample"></div>
+			</div>
+	</div>
+
+</div>
