@@ -1,3 +1,5 @@
-JS-framework used to render Dashboard of statistical and analytics web site. Dashboard consists of widgets. Each widget provides a bit of data visualizing in a special way. Technically each widget works as JS-object inherited from the core one.
+JS-framework used to render Dashboard of statistical and analytics web site. Dashboard consists of widgets. Each widget provides a bit of data visualizing in a special way.
 
-[Dashboard demo](http://tldstat.com/tld/lv/report/summary)
+Technically each widget works as JS-object inherited from the core one.
+
+Dashboard demo: http://tldstat.com/tld/lv/report/summary
