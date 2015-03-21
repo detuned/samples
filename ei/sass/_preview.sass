@@ -1,0 +1,137 @@
+.preview
+	display: none
+	box-shadow: 0 3px 5px rgba(0,0,0,0.25)
+	&.preview_disabled
+		display: none
+	&.preview_ready
+		display: block
+
+.preview__article
+	position: relative
+	padding: 0 0 30px
+	margin: 16px 0 0
+	.preview_with-img &
+		padding-left: 432px
+		min-height: 241px
+
+.preview__img
+	display: none
+	position: absolute
+	top: 0
+	left: 0
+	width: 416px
+	height: 241px
+	margin: 0 20px 0 0
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: center
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5)
+	.preview_with-img &
+		display: block
+
+.preview__content
+	overflow: hidden
+.preview__title
+	display: block
+	margin: 0
+	padding: 12px 0 12px
+	+main_font_bold
+	font-size: 24px
+	font-family: 'OpenSans Bold', Arial, sans-serif
+	.preview__title-link
+		text-decoration: none
+		color: #000
+
+
+.preview__text
+	display: block
+	line-height: 1.5
+	font-size: 14px
+
+.preview__url
+	margin-top: 4px
+	.preview__url-link
+		+ibm
+		+regular_link
+		&:before
+			+ibm
+			margin: 0 6px 0 0
+			+s(url-external)
+			content: ' '
+
+.preview__theme
+	margin-top: 14px
+	font-size: 12px
+	.preview__theme-title
+		+main_font_light_italic
+		color: #818181
+	.preview__theme-name
+		+regular_link
+
+.preview__share
+	display: block
+	margin-top: 14px
+.share
+	font-size: 12px
+	.share__title
+		+ibm
+		+main_font_light_italic
+		color: #818181
+	.share__item
+		+ibm
+		margin: 0 4px 0 0
+		+regular_link
+		&:last-child
+			margin-right: 0
+
+.preview__activity
+	margin: 14px 0 0
+
+.activity-chart
+	.activity-chart__header
+		padding: 8px 16px
+		@extend %clr
+		background: #2774B5
+		color: #FFF
+		+main_font_bold
+		font-size: 12px
+		.activity-chart__next
+			+unselectable
+			&.activity-chart__next_active
+				@extend %press
+				cursor: pointer
+				border-bottom: 1px dashed
+				&:hover
+					color: #FFE66F
+
+	.activity-chart__body
+		position: relative
+		height: 110px
+		background-color: #EEE
+		+transition( all 0.3s ease-out )
+		&:after
+			display: block
+			+abs0
+			content: ' '
+			background: transparentize(#F6F6F6, 0.1) image_url('loader.gif') no-repeat center
+			opacity: 0
+			visibility: hidden
+			+transition(all 0.3s 0.2s)
+			content: ' '
+	&.activity-chart_loading .activity-chart__body:after
+		opacity: 0.8
+		visibility: visible
+	&.activity-chart_inactive
+		display: none
+.highcharts-tooltip span
+	padding: 6px 12px
+	background-color: transparentize(#FFF, 0.2)
+	border: 1px solid transparentize(#6DACE1, 0.3)
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2)
+	border-radius: 4px
+	z-index: 9999 !important
+	opacity: 1
+	+main_font
+	font-size: 11px
+	strong
+		+main_font_bold

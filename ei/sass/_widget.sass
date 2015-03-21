@@ -1,0 +1,202 @@
+$widget_list_entity_height: 60px
+
+.scope-widget
+	height: auto
+	background: #FFF
+	overflow: hidden
+.widget
+	display: block
+	min-width: 240px
+	padding: 12px 0 6px
+	+box-sizing(border-box)
+	background: #FFF
+	.smart-list
+		margin-top: 10px
+		margin-bottom: 0
+		&:after
+			background-color: #FFF
+			background-image: image_url('loader-light.gif')
+	.smart-list__empty-msg
+		font-size: 12px
+	.list-entity
+		white-space: normal
+		height: $widget_list_entity_height
+		&:before
+			display: none
+	.list-entity__link
+		padding-left: 0
+		height: $widget_list_entity_height - 1
+		line-height: 1.3
+	.list-entity__base
+		top: 4px
+		left: 0
+		padding-right: 6px
+		padding-left: 35px
+		max-height: $widget_list_entity_height - 9
+		overflow: hidden
+		&:after
+			display: none
+	.list-entity__name-core
+		white-space: normal
+		overflow: visible
+	.list-entity__title-wrap
+		max-height: $widget_list_entity_height - 9
+		overflow: hidden
+	.list-entity__title
+		margin: 0 0 0 -3px
+		padding: 0 3px
+		font-size: 13px
+	.list-entities_updated .list-entity_updated
+		background: #FFF0F1
+		.list-entity__title
+			background: none
+	.list-entities_paused .list-entity_updated
+		background: none
+	.list-entity__aside,
+	.list-entities__footer,
+	.share,
+	.badge
+		display: none
+
+	.list-entity__chart,
+	.list-entity__footer
+		display: none
+	.list-entity__index
+		display: block
+		font-size: 14px
+		font-weight: bold
+		height: auto
+		line-height: 1
+	.list-entity_top-of-top .list-entity__index
+		color: #F14141
+
+	.list-entity_with-badge .list-entity__title
+		line-height: inherit
+
+.widget__header
+	padding-left: 34px
+	height: 45px
+.logo_widget
+	display: block
+	padding: 10px 0 0
+	height: auto
+	font-size: 30px
+	.logo__img
+		white-space: nowrap
+	.logo__motto
+		display: block
+		line-height: 1
+		height: auto
+		margin: 0 0 0 9px
+.widget__logo-small
+	display: none
+	position: absolute
+	bottom: 12px
+	right: 12px
+	background: #FFF
+	white-space: nowrap
+	font-size: 12px
+	+main_font_bold
+	text-decoration: none
+	outline: none
+	color: #1777C9
+	.widget__logo-small-icon
+		+s(logo-small)
+		vertical-align: middle
+	.widget__logo-small-title
+		+ibm
+	&:hover
+		color: #000
+	&:active
+		margin-bottom: -1px
+.widget_no-header
+	.widget__header
+		display: none
+	.smart-list
+		margin-top: 0
+	.widget__logo-small
+		display: block
+
+//Design blue
+.scope-widget.design-blue
+	background: #1C6DB3
+	.widget
+		background: #1C6DB3
+
+		.logo
+			color: #FFF
+
+		.list-entity__link
+			color: #FFF
+			&:link
+				.list-entity__title
+					color: #FFF
+			&:visited
+				.list-entity__title
+					color: #8DBCE5
+			&:hover
+				.list-entity__title
+					color: #FFF
+
+		.list-entity__index,
+		.list-entity_top-of-top .list-entity__index
+			color: #FFF
+			opacity: 0.5
+	.widget__logo-small
+		background: #1C6DB3
+
+//Design red
+.scope-widget.design-red
+	background: #EF5D5D
+	.widget
+		background: #EF5D5D
+
+		.logo
+			color: #FFF
+
+		.list-entity__link
+			color: #FFF
+			&:link
+				.list-entity__title
+					color: #FFF
+			&:visited
+				.list-entity__title
+					color: #F9BEBE
+			&:hover
+				.list-entity__title
+					color: #FFF
+		.list-entity__index,
+		.list-entity_top-of-top .list-entity__index
+			color: #FFF
+	.widget__logo-small
+		background: #EF5D5D
+
+//Design black
+.scope-widget.design-black
+	background: #212121
+	.widget
+		background: #212121
+
+		.logo
+			color: #FFF
+
+		.list-entity__link
+			color: #FFF
+			&:link
+				.list-entity__title
+					color: #FFF
+			&:visited
+				.list-entity__title
+					color: #979797
+			&:hover
+				.list-entity__title
+					color: #7296b5
+		.list-entity__index,
+		.list-entity_top-of-top .list-entity__index
+			color: #E5E5E5
+
+		.smart-list:after
+			background-color: transparentize(#212121, 0.1)
+			background-image: image_url('loader-dark.gif')
+	.widget__logo-small
+		background: #212121

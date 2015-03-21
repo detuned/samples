@@ -1,0 +1,55 @@
+<div class="list-entities" data-ng-class="{
+'list-entities_updated': state.updated,
+'list-entities_paused': isPaused()
+}">
+	<div class="list-entities__list" role="list" data-ng-style="{height:containerHeight}">
+		<div
+				class="list-entity"
+				role="list-entity"
+				data-ng-repeat="entity in list"
+				data-ng-class="[
+					entity.prev && ( entity.indexDiff > 2 || entity.indexDiff < -2 ) ? 'list-entity_updated' : '',
+					'list-entity_diff-cat-' + getDiffCategory( entity ),
+			       entity.factor < 17 ? 'list-entity_factor-small' : '',
+			       entity.index + indexOffset < 3 ? 'list-entity_top-of-top' : '',
+					]"
+				data-ng-style="{top: entityHeight * entity.index}"
+				>
+			<a data-ng-href="{{entity.href}}" class="list-entity__link" target="_blank">
+				<span class="list-entity__chart">
+				<span class="list-entity__chart-bar"
+				      data-dynamic-width="{{entity.factor}}"
+				      data-prev-width="{{entity.prev.factor}}"
+				      data-min-width="1"
+						><span class="list-entity__chart-diff"></span></span><span
+						class="list-entity__weight"
+						data-ng-bind="entity.weight|numberFormat"></span>
+				</span>
+				<span class="list-entity__base">
+					<span class="list-entity__title" data-ng-bind="entity.title"></span>
+					<span class="list-entity__index" data-ng-bind="entity.index + indexOffset + 1"></span>
+				</span> </a>
+
+			<div class="list-entity__footer">
+				<a class="list-entity__preview" data-ng-href="{{entity.previewUrl}}">Article preview</a>
+				<a class="list-entity__host {{entity.hostSignature}}"
+				   data-ng-show="entity.normalizedHost"
+				   data-ng-bind="entity.normalizedHost"
+				   data-ng-href="{{'/#/?query=' + entity.normalizedHost}}"></a>
+				<span class="list-entity__badge badge" data-ng-class="['badge_type-' + entity.badge.type]" data-ng-if="entity.badge.enable"><span class="badge__intro">Popular in</span><span class="badge__source" data-ng-bind="entity.badge.title" data-ng-click="setOnlySource( entity.badge.sourceId )"></span></span>
+			</div>
+		</div>
+	</div>
+	<div class="list-entities__footer" data-ng-show="totalPages > 1">
+		<div class="list-entities__perpage"
+		     data-perpage-select
+		     data-model="limit"
+		     data-options="{{limitOptions}}"
+		     data-on-change="onLimitChange( $limit )"></div>
+		<div class="list-entities__paginator"
+		     data-paginator
+		     data-page="page"
+		     data-total-pages="totalPages"
+		     data-on-change="onPageChange( $page )"></div>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+<div class="activity-chart activity-chart_loading activity-chart_inactive" data-ng-class="{
+'activity-chart_loading' : state.loading,
+'activity-chart_inactive' : charts.length == 0
+}">
+	<div class="activity-chart__header">
+		<h3 class="activity-chart__title">Popularity Dynamics <span class="activity-chart__next" data-ng-class="{'activity-chart__next_active': charts.length > 1}" data-ng-bind="'for ' + charts[chartIndex].title" data-ng-show="charts[chartIndex].title" data-ng-click="nextChart()"></span></h3>
+	</div>
+	<div class="activity-chart__body" role="chartsHolder"></div>
+</div>

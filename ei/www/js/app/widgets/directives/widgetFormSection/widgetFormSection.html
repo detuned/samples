@@ -1,0 +1,16 @@
+<div
+		class="widget__form-section acc-section"
+		data-ng-class="[
+		'acc-section_name-' + formSection.name,
+		formSection.open ? 'acc-section_open' : '',
+		formSection.static ? 'acc-section_static' : '',
+		]"
+		>
+	<div
+			class="acc-section__title"
+			data-ng-bind="formSection.title"
+			data-ng-click="switchCollapse()"></div>
+	<div class="acc-section__body">
+		<div class="acc-section__content" data-ng-transclude></div>
+	</div>
+</div>

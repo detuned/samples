@@ -1,0 +1,13 @@
+<div class="smart-list" data-ng-class="{'smart-list_loading':state.loading, 'smart-list_empty':state.empty}">
+	<div class="smart-list__content" role="smart-list-body"></div>
+	<div class="smart-list__empty-msg empty-msg">
+		<div class="empty-msg__text">No news found</div>
+		<div class="empty-msg__period" data-ng-show="period.index < periods.length - 1">Try to make a search by larger period: <span class="empty-msg__period-option" data-ng-repeat="p in periods" data-ng-show="p.index > period.index"><span data-ng-bind="
+		p.index - period.index > 1
+				? p.index == periods.length - 1 && ( periods.length - 1 - period.index > 1 )
+				? ' or '
+				: ', '
+			: ''
+		" class="empty-msg__period-option-separator"></span><span data-ng-click="setPeriod( p.id )" data-ng-bind="p.shortTitle" class="empty-msg__period-option-title"></span></span></div>
+	</div>
+</div>

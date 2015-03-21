@@ -1,0 +1,40 @@
+<div
+		class="preview"
+		data-ng-class="{
+			'preview_ready': article.title || article.description,
+			'preview_with-img' : article.image
+		}">
+	<a class="back-link" href="/">
+		<span class="content">
+			<span class="content__core">
+				<span class="back-link__title">Back to main list</span>
+			</span>
+		</span>
+	</a>
+	<div class="content">
+		<div class="content__core">
+			<h1 class="preview__title"><a data-ng-href="{{article.permanentUrl}}" target="_blank" data-ng-bind="article.title" class="preview__title-link"></a></h1>
+			<div class="preview__article">
+				<a class="preview__img"
+				     data-ng-href="{{article.permanentUrl}}"
+				     target="_blank"
+				     data-ng-style="{'background-image':'url(' + article.image+ ')'}"
+						></a>
+				<div class="preview__content">
+					<div class="preview__text" data-ng-bind="article.description"></div>
+					<div class="preview__url">
+						<a data-ng-href="{{article.permanentUrl}}" target="_blank" class="preview__url-link">
+							<span class="preview__url-link-text" data-ng-bind="article.compactUrl"></span>
+						</a>
+					</div>
+					<div class="preview__theme" data-ng-show="article.theme.id">
+						<span class="preview__theme-title">Popular in category</span>
+						<a data-ng-href="{{'/#/?categories=' + article.theme.id}}" class="preview__theme-name" data-ng-bind="article.theme.title"></a>
+					</div>
+					<div class="preview__activity" data-entity-activity-chart data-entity="article"></div>
+					<div class="preview__share" data-share-entity data-entity="article"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

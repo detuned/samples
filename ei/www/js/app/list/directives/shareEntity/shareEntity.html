@@ -1,0 +1,13 @@
+<span class="share">
+	<span class="share__core">
+		<span class="share__title">Share in</span>
+		<span
+		      data-ng-repeat="network in shareNetworks"
+		      data-ng-click="entityShareSocial( entity, network.id )"
+		      class="share__item"
+		      data-ng-class="'share__item_' + network.id"
+		      data-ng-bind="network.title"
+		      data-ng-title="'Share in ' + network.title"
+			>Facebook</span>
+	</span>
+</span>

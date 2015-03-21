@@ -1,0 +1,45 @@
+.text
+	padding: 24px 0
+	a
+		color: $color_font_active
+		&:hover
+			color: #000
+	abbr
+		text-transform: uppercase
+		border: none
+		letter-spacing: 1px
+		font-size: 0.9em
+
+.text__title
+	font-size: 2em
+	margin: 0 0 24px
+
+.text__body
+	line-height: 1.5
+	p
+		margin: 0 0 18px
+
+//Counter code
+.counter-code
+	display: block
+	position: relative
+	overflow: hidden
+	margin: 0 0 15px -20px
+	padding: 12px 20px
+	border: 1px solid rgba(0, 0, 0, 0.2)
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1)
+	background: rgba(255, 255, 255, 0.6)
+	+transition(all 0.2s)
+.counter-code__field
+	display: block
+	width: 100%
+	min-height: 14em
+	min-width: 70em
+	border: none
+	color: #414141
+	background: none
+	font: 11px/1.2 'Courier New', monospace
+	resize: none
+	overflow: hidden
+	white-space: pre
+	outline: none

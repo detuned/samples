@@ -1,0 +1,147 @@
+$aside_stats_item_height: 30px
+
+.aside
+	//float: right
+	//width: $aside_width
+	//display: block
+	.aside__core
+		padding: 45px 0 0 $aside_side_padding
+
+.aside-block
+	display: block
+
+//Partners block
+.aside-block_partners
+	width: 300px
+	height: 250px
+	overflow: hidden
+
+//Cw
+//Domain-chart
+.aside-block_cw
+	margin: 0 0 36px
+.cw-install
+	.cw-install__title
+		margin: 0 0 12px
+		+main_font_light_italic
+		font-size: 21px
+		color: #737373
+	.cw-install__body
+		display: block
+		position: relative
+		border-radius: 4px
+		margin: 0 0 0 -4px
+		padding: 12px 12px 18px 24px
+		cursor: pointer
+		white-space: nowrap
+		vertical-align: middle
+		background: #FFF
+		+unselectable
+		+transition(box-shadow 0.3s)
+		&:hover
+			box-shadow: 0 1px 2px rgba(0,0,0,0.1)
+		&:active
+			top: 1px
+			box-shadow: inset 0 1px 2px rgba(0,0,0,0.1)
+			background: darken(#FFF, 0.5%)
+			+transition(none)
+	.cw-install__logo
+		+ibm
+		+s(cw-logo)
+	.cw-install__caption
+		+ibm
+		max-width: 170px
+		font-size: 20px
+		margin: 0 0 0 20px
+		white-space: normal
+	.cw-install__caption-title
+		display: block
+		margin: 2px 0 4px
+		line-height: 1.1
+	.cw-install__caption-text
+		display: block
+		padding-right: 20px
+		font-size: 12px
+	.cw-show
+		display: none
+
+	//Install
+	.cw-install__body_install
+		&:after
+			display: block
+			position: absolute
+			top: 8px
+			right: 8px
+			width: 35px
+			height: 12px
+			background: image_url('loader-light.gif')
+			opacity: 0
+			visibility: hidden
+			+transition( all 0.3s )
+			content: ' '
+	//Reopen
+	.cw-install__body_reopen
+		.cw-install__caption
+			margin-top: 2px
+			font-size: 18px
+
+	//Busy
+	&.cw-install_busy
+		.cw-install__body_install,
+		.cw-install__body_install:hover,
+		.cw-install__body_install:active
+			top: 0
+			box-shadow: none
+			cursor: default
+			&:after
+				visibility: visible
+				opacity: 0.2
+
+//Domain-chart
+.aside-block_domain-chart
+	margin: 0 0 36px
+.domain-chart
+	display: block
+	.domain-chart__title
+		margin: 0 0 12px
+		+main_font_light_italic
+		font-size: 21px
+		color: #737373
+	.domain-chart__item
+		display: block
+		position: relative
+		min-height: 16px
+		padding: 7px 6px
+		border-bottom: 1px solid #E0E0E0
+		text-decoration: none
+		&:first-child
+			border-top: 1px solid #E0E0E0
+		&:hover
+			background: rgba(255, 255, 255, 1)
+		@each $host_icon in sprite_names($hosts_icons)
+			&.#{$host_icon}
+				.domain-chart__item-icon
+					+s(#{$host_icon}, $hosts_icons)
+
+	.domain-chart__item-name
+		display: block
+		white-space: nowrap
+		font-size: 16px
+		line-height: 16px
+	.domain-chart__item-icon
+		+ibm
+		width: 16px
+		height: 16px
+	.domain-chart__item-title
+		vertical-align: middle
+		+main_font_semibold
+		font-size: 14px
+		color: #000
+	.domain-chart__item-value
+		position: absolute
+		top: 8px
+		right: 6px
+		bottom: 0
+		white-space: nowrap
+		font-size: 12px
+		color: #818181

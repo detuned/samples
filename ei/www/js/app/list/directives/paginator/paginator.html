@@ -1,0 +1,14 @@
+<div class="paginator">
+	<span class="paginator__item paginator__item_arrow paginator__item_arrow-left" data-ng-class="{
+	      'paginator__item_disabled' : page <= 1
+	}" data-ng-click="page > 1 && change( 1 )"></span><span data-ng-repeat="p in pages"
+	      data-ng-bind="p.title || p"
+	      data-ng-class="{
+	      'paginator__item_active' : p.value == page || p == page,
+	      'paginator__item_fake' : p.fake
+	      }"
+	      data-ng-click="change( p )"
+	      class="paginator__item"></span><span class="paginator__item paginator__item_arrow paginator__item_arrow-right" data-ng-class="{
+	      'paginator__item_disabled' : page >= totalPages
+	}" data-ng-click="page < totalPages && change( page + 1 )"></span>
+</div>

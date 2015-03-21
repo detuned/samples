@@ -1,0 +1,113 @@
+$settings_footer_height: 45px
+$settings_border_radius: 4px
+
+// Settings
+.settings
+	position: relative
+	overflow: hidden
+	min-height: 44px
+	background: $settings_bg
+	color: #F8F8F8
+	.settings__mode
+		max-height: 0
+		overflow: hidden
+		visibility: hidden
+		opacity: 0
+		+box-sizing(border-box)
+		.content__core
+			padding-top: 12px
+			padding-bottom: 12px
+	.settings__mode_collapsed
+		cursor: pointer
+	&.settings_collapsed .settings__mode_collapsed
+		+transition( all 0.3s 0.2s )
+	.settings__mode_expanded
+		+transition( all 0.3s ease-in-out )
+	.settings__close-bar
+		position: absolute
+		right: 0
+		bottom: 0
+		left: 0
+		height: 50px
+		cursor: pointer
+		&.settings__close-bar_top
+			height: 44px
+			bottom: auto
+			top: 0
+	&.settings_expanded .settings__mode_expanded,
+	&.settings_collapsed .settings__mode_collapsed
+		max-height: 800px
+		visibility: visible
+		opacity: 1
+.settings__summary
+	padding: 0 0 0 6px
+	+main_font_light_italic
+	vertical-align: baseline
+	font-size: 18px
+	.settings__summary-selector
+		display: inline-block
+		vertical-align: baseline
+		text-transform: uppercase
+		+main_font_bold
+		color: #FFF
+		&:after
+			vertical-align: baseline
+			margin: 0 6px -6px 6px
+			content: ' '
+			+s(arrow-down)
+		&.settings__summary-selector_highlighted
+			color: #FFE66F
+	.settings__summary-text
+		vertical-align: baseline
+
+
+//Option
+.option
+	position: relative
+	width: 416px
+	padding: 0 0 30px
+	+ibt
+	.option__title
+		+main_font_bold
+		text-transform: uppercase
+		color: #FFF
+		white-space: nowrap
+		margin: 0 0 16px
+		font-size: 18px
+		.option__title-value
+			border-bottom: 2px solid #EF5D5D
+		.option__title-text
+			&:after
+				vertical-align: baseline
+				margin: 0 6px -6px 6px
+				content: ' '
+				+s(arrow-up)
+	.option__list
+		+columns(128px 3)
+		min-height: 125px
+	.option__list-item
+		display: inline-block
+		width: 100%
+		padding: 0 16px 0 0
+		+box-sizing(border-box)
+		+main_font_bold
+	.option__list-item-button
+		font-size: 14px
+		color: #6DACE1
+		cursor: pointer
+		@extend %press
+		&.option__list-item-button_active
+			color: #FFF
+		&:hover
+			color: #FFE66F
+	.option__list_sources
+		.option__list-item-button
+			text-transform: uppercase
+
+	.option__actions
+		position: absolute
+		white-space: nowrap
+		bottom: 10px
+		.option__action
+			cursor: pointer
+			+main_font_bold

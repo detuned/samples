@@ -1,0 +1,13 @@
+<div class="header__period-selector revolver"
+     data-ng-click="roll()"
+     data-ng-class="{
+     'revolver_show-next':isNextActive,
+     'revolver_rolling': isRolling
+     }">
+	<div class="revolver__value revolver__value_next">
+		<span class="revolver__value-title" data-ng-bind="nextPeriod.title"></span>
+	</div>
+	<div class="revolver__value revolver__value_current">
+		<span class="revolver__value-title" data-ng-bind="period.title"></span>
+	</div>
+</div>

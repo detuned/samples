@@ -1,0 +1,89 @@
+$paginagor3000_color_active: #F14141
+
+.paginator3000
+	+unselectable
+.paginator3000__table
+	border-collapse: collapse
+	table-layout: fixed
+	width: 100%
+.paginator3000__cell
+	padding: 0
+	white-space: nowrap
+	text-align: center
+.paginator3000__page
+	display: block
+	cursor: pointer
+	min-width: 36px
+.paginator3000__page_active
+	cursor: default
+
+.paginator3000__page-core
+	display: inline-block
+	vertical-align: middle
+	padding: 0 4px
+	min-height: 12px
+	font-size: 12px
+	text-align: center
+	color: #282828
+	.paginator3000__page:hover &
+		background: $paginagor3000_color_active
+		color: #FFF
+	.paginator3000__page_active &,
+	.paginator3000__page_active:hover &
+		color: $paginagor3000_color_active
+		background: none
+.paginator3000__scroll-bar
+	width: 100%
+	height: 20px
+	position: relative
+	margin-top: 10px
+.paginator3000__scroll-trough
+	width: 100%
+	height: 1px
+	background: #D7D7D7
+	overflow: hidden
+.paginator3000__scroll-thumb
+	position: absolute
+	z-index: 2
+	min-width: 20px
+	height: 1px
+	top: 0
+	left: 0
+	font-size: 1px
+	background: $paginagor3000_color_active
+.paginator3000__scroll-knob
+	display: block
+	position: absolute
+	top: -7px
+	right: 0
+	left: 0
+	height: 30px
+	cursor: pointer
+	cursor: hand
+	&:after
+		display: block
+		position: absolute
+		top: 0
+		left: 50%
+		margin-left: -7px
+		+s(knob)
+		content: ' '
+.paginator3000__current-page-mark
+	display: none //XXX not use this feature at the time
+	position: absolute
+	z-index: 1
+	top: 0
+	left: 0
+	width: 0
+	height: 1px
+	overflow: hidden
+	background: #ff6c24
+
+.paginator3000_light
+	.paginator3000__table
+		width: auto
+	.paginator3000__scroll-bar
+		visibility: hidden
+.paginator3000_exact
+	.paginator3000__scroll-bar
+		visibility: hidden

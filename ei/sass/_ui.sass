@@ -1,0 +1,118 @@
+// E-select
+.e-select
+	+ibm
+	position: relative
+	font-size: 13px
+
+	.e-select__match
+		+ibm
+		position: relative
+		min-width: 100%
+		min-height: 31px
+		line-height: 24px
+		+box-sizing(border-box)
+		+unselectable
+		padding: 0 24px 0 12px
+		background: rgba(255, 255, 255, 0.9)
+		border: 1px solid rgba(0,0,0,0.15)
+		box-shadow: inset 0 1px rgba(0,0,0,0.1)
+		border-radius: 2px
+		cursor: default
+		text-align: left
+		&:after
+			display: block
+			position: absolute
+			top: 0
+			right: 5px
+			bottom: 0
+			margin: auto 0
+			content: ' '
+			opacity: 0.5
+			+s(dropdown-knob-dark)
+		&:hover
+			border-color: rgba(0, 0, 0, 0.3)
+			background: #FFF
+			&:after
+				opacity: 0.8
+
+	.e-select__body
+		display: none
+		position: absolute
+		top: 100%
+		left: 0
+		z-index: 10
+		display: none // none by default, but block on "open" of the menu
+		float: left
+		min-width: 100%
+		max-width: 400px
+		max-height: 200px
+		overflow-x: hidden
+		overflow-y: auto
+		margin: 2px 0 0 // override default ul
+		list-style: none
+		text-align: left // Ensures proper alignment if parent has it changed (e.g., modal footer)
+		border: 1px solid #CCC
+		border-radius: 4px
+		box-shadow: 0 6px 12px rgba(0,0,0,.175)
+		background: #FFF
+		
+	.e-select__option
+		display: block
+		padding: 4px 12px
+		cursor: pointer
+		white-space: nowrap
+		background: #FFF
+		color: #000
+		&:first-child
+			padding-top: 6px
+			border-radius: 4px 4px 0 0
+		&:last-child
+			padding-bottom: 6px
+			border-radius: 0 0 4px 4px
+		&:hover
+			background: #08F
+			color: #FFF
+
+	&.open
+		.e-select__body
+			display: block
+		.e-select__match
+			box-shadow: inset 0 1px 2px rgba(0,0,0,0.2)
+			background: #FFF
+			//&:after
+			//	+s(dropdown-knob-up-dark)
+
+//Radio group
+.radio-group
+	+ibm
+	.radio-group__item
+		+ibm
+		border: 1px solid #CCC
+		border-width: 1px 0 1px 1px
+		cursor: pointer
+		padding: 6px 12px
+		+unselectable
+		font-size: 14px
+		color: #818181
+		&:first-child
+			border-radius: 4px 0 0 4px
+		&:last-child
+			border-radius: 0 4px 4px 0
+			border-right-width: 1px
+		&:hover
+			background: rgba(255, 255, 255, 0.9)
+
+		&:active,
+		&.active
+			box-shadow: inset 1px 1px 1px rgba(0,0,0,0.3)
+			cursor: default
+			background: #6EA0D7
+			color: #FFF
+
+	&.radio-group_separate
+		.radio-group__item,
+		.radio-group__item:first-child,
+		.radio-group__item:last-child
+			border-radius: 4px
+			border-width: 1px
+			margin: 0 6px 0 0

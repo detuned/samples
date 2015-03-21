@@ -1,0 +1,100 @@
+.mode-testing
+	.header
+		text-align: center
+		.logo
+			display: inline-block
+			margin: 0 -13px 0 0
+			float: none
+.mode-testing
+	.footer__text
+		padding-left: 0
+		text-align: center
+	.footer__item
+		display: none
+		&.footer__item_copyright
+			display: inline-block
+
+.testing
+	text-align: center
+	padding: 20px 0 0
+
+//.testing__details
+.testing__detail
+	+ibt
+	text-align: center
+	padding: 40px 10px
+	min-width: 200px
+	+box-sizing(border-box)
+.testing__detail-title
+	display: block
+	font-size: 13px
+.testing__detail-value
+	display: block
+	font-size: 40px
+
+.testing__detail-control
+	opacity: 0
+	visibility: hidden
+	+transition( opacity 0.5s )
+	.testing_active &
+		opacity: 1
+		visibility: visible
+
+
+//Control
+.control
+	text-align: center
+	margin: 12px 0 0
+.control__field
+	width: 40px
+	border: 1px solid #DDD
+	vertical-align: middle
+	text-align: center
+.control__button-wrap
+	display: block
+	margin: 4px 0 0
+
+//Settings
+.testing__settings
+	text-align: left
+	font-size: 12px
+	margin: 0 auto
+	width: 360px
+	&.testing__settings_disabled
+		opacity: 0.5
+.testing__settings-item
+	margin: 0 0 12px
+.testing__settings-label
+	vertical-align: middle
+.testing__settings-field
+	vertical-align: middle
+	&[disabled]
+		opacity: 0.6
+	.testing__settings-field_checkbox
+		margin: 0 6px 0 0
+	&.testing__settings-field_select
+		width: 220px
+	&.testing__settings-field_text
+		border: 1px solid #DDD
+		padding: 2px 4px
+		font-size: 14px
+		outline: none
+		&.ng-invalid
+			color: #F00
+			border-color: #F00
+		.testing__settings-item_name-lifetime &
+			width: 50px
+.testing__settings-title
+	+ibm
+	text-align: right
+	margin: 0 6px 0 0
+	&.testing__settings-title_select,
+	&.testing__settings-title_text
+		width: 130px
+.testing__settings-units
+	+ibm
+	margin: 0 0 0 3px
+
+
+.testing__button-wrap
+	margin: 20px 0 0

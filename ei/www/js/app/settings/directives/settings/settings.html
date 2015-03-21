@@ -1,0 +1,96 @@
+<div class="settings settings_collapsed"
+     data-ng-hide="previewData.article"
+     data-ng-class="[
+settingsData.expanded ? 'settings_expanded' : 'settings_collapsed'
+]">
+
+	<div class="settings__mode settings__mode_collapsed" data-ng-click="toggleCollapsing(true)">
+		<div class="content">
+			<div class="content__core">
+				<div class="settings__summary">
+					<span class="settings__summary-text">Most interesting news in</span>
+					<span class="settings__summary-selector settings__summary-selector_themes"
+					      data-ng-bind="getThemesSummary()"></span>
+					<span class="settings__summary-text">and in</span>
+					<span class="settings__summary-selector settings__summary-selector_sources"
+					      data-ng-bind="getSourcesSummary()"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="settings__mode settings__mode_expanded">
+		<div class="content settings__content">
+			<div class="content__core">
+				<div class="settings__options">
+
+					<div class="option option_themes">
+						<h3 class="option__title">
+							<span class="option__title-value" data-ng-bind="getThemesNum() || 'All'"></span>
+							<span class="option__title-text"
+							      data-ng-bind="getThemesNum() == 1 ? 'category' : 'categories'"></span>
+						</h3>
+
+						<div class="option__body">
+							<ul class="option__list option__list_themes">
+								<li class="option__list-item" data-ng-repeat="t in themes">
+										<span class="option__list-item-button"
+										      data-ng-bind="t.title"
+										      data-ng-click="setTheme(t.id)"
+										      data-ng-class="[ theme[t.id] ? 'option__list-item-button_active' : '',
+										       'option__list-item-button_theme-' + t.id ]"></span>
+								</li>
+							</ul>
+						</div>
+						<div class="option__actions">
+							<span class="option__action">
+								<span class="option__list-item-button"
+                                   data-ng-click="setTheme( themeAllId )"
+                                   data-ng-class="[
+		                                   theme[themeAllId] ? 'option__list-item-button_active' : '',
+		                                   'option__list-item-button_theme-' + themeAllId
+	                                   ]">Select All</span>
+							</span>
+						</div>
+					</div>
+
+
+					<div class="option option_sources">
+						<h3 class="option__title">
+							<span class="option__title-value" data-ng-bind="getSourcesNum() || 'All'"></span>
+							<span class="option__title-text"
+							      data-ng-bind="getSourcesNum() == 1 ? 'social network' : 'social networks'"></span>
+						</h3>
+
+						<div class="option__body">
+							<ul class="option__list option__list_sources">
+								<li class="option__list-item" data-ng-repeat="s in sources">
+										<span class="option__list-item-button"
+										      data-ng-bind="s.title"
+										      data-ng-click="setSource(s.id)"
+										      data-ng-class="[
+										      source[s.id] ? 'option__list-item-button_active' : '',
+										      'option__list-item-button_source-' + s.id
+										      ]"></span>
+								</li>
+							</ul>
+							<div class="option__actions">
+								<span class="option__action">
+									<span class="option__list-item-button"
+									      data-ng-click="setSource( sourceAllId )"
+									      data-ng-class="[
+			                                   source[sourceAllId] ? 'option__list-item-button_active' : '',
+			                                   'option__list-item-button_source-' + sourceAllId
+		                                   ]">Select All</span>
+								</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="settings__close-bar settings__close-bar_top" data-ng-click="toggleCollapsing(false)"></div>
+	</div>
+</div>

@@ -1,0 +1,5 @@
+<div class="period" data-ng-class="{'period_active':periodData.isRangeView}">
+	<span class="period__side period__side_from" data-date-time-picker data-ng-model="periodRange.from" data-min="{{periodData.minDateStr}}" data-format="{{periodData.dateFormat}}" data-on-change="onDateChange()"></span>
+	<span class="period__separator">&mdash;</span>
+	<span class="period__side period__side_to" data-date-time-picker data-ng-model="periodRange.to" data-min="{{periodData.minDateStr}}" data-format="{{periodData.dateFormat}}" data-on-change="onDateChange()"></span>
+</div>

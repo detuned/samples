@@ -1,0 +1,459 @@
+.widgets
+	display: block
+.widgets__title
+	font-size: 2em
+	margin: 0 0 24px
+
+.widgets__body
+	@extend %clr
+.widgets__view
+	float: right
+	max-width: 500px
+	min-width: 270px
+	padding-left: 20px
+.widgets__aside
+	position: relative //Required for auto positioning in widgetPreview directive
+.widgets__set
+	overflow: hidden
+	padding: 0 0 120px
+	font-size: 14px
+.widgets__text
+	margin: 0 300px 24px 0
+
+//Collapsible accordion-like widgets
+.acc-section
+	.acc-section__title
+		position: relative
+		padding: 0 0 0 40px
+		height: 30px
+		line-height: 30px
+		white-space: nowrap
+		overflow: hidden
+		cursor: pointer
+		font-size: 21px
+		background: #8DBCE5
+		color: #FFF
+		+unselectable
+		&:before
+			display: block
+			position: absolute
+			top: 0
+			left: 12px
+			bottom: 0
+			margin: auto 0
+			+s(collapse-collapsed)
+			opacity: 0.5
+			content: ' '
+
+	.acc-section__body
+		max-height: 0
+		overflow: hidden
+		+transition( max-height 0.3s ease-out )
+	.acc-section__content
+		padding: 16px
+		visibility: hidden
+		+transition( all 0.3s ease-out )
+	&.acc-section_open
+		.acc-section__title
+			&:before
+				+s(collapse-opened)
+		.acc-section__body
+			max-height: 900px
+			overflow: visible
+		.acc-section__content
+			visibility: visible
+
+	&.acc-section_static
+		.acc-section__title
+			cursor: default
+			padding-left: 16px
+			&:before
+				display: none
+		.acc-section__body
+			max-height: none
+			overflow: visible
+			+transition(none)
+		.acc-section__content
+			visibility: visible
+//Size, radio-list
+
+$widget_sizes: '240x400' '270x400' '720x240'
+
+.radio-list
+	.radio-list__item
+		+ibt
+		white-space: nowrap
+		cursor: pointer
+		padding: 18px 30px 12px
+		background: rgba(255, 255, 255, 0.4)
+		box-shadow: 1px 1px rgba(0,0,0,0.1)
+		&:hover
+			box-shadow: 0 1px 3px rgba(0,0,0,0.1)
+
+	.radio-list__field
+		vertical-align: middle
+		display: none
+	.radio-list__label
+		+ibm
+		text-align: center
+	.radio-list__icon
+		+ibt
+		position: relative
+		min-height: 35px
+	.radio-list__title-wrap
+		+ibt
+		margin: 4px 0 0 4px
+		color: #818181
+		font-size: 14px
+	.radio-list__soon-lable
+		display: none
+		position: absolute
+		margin: -8px 0 0 2px
+		font-size: 11px
+
+	.radio-list__item:active,
+	.radio-list__item_selected,
+	.radio-list__item_selected:hover
+		box-shadow: inset 0 1px 3px rgba(0,0,0,0.25)
+		background: rgba(255, 255, 255, 0.9)
+
+	.radio-list__item_soon
+		cursor: default
+		background: none
+		box-shadow: none
+		.radio-list__icon
+			opacity: 0.2
+			+grayscale
+		.radio-list__title-wrap
+			opacity: 0.2
+		.radio-list__soon-lable
+			display: inline
+
+		&:hover,
+		&:active
+			background: none
+			box-shadow: none
+
+	&.radio-list_flat
+		.radio-list__item,
+		.radio-list__item:active,
+		.radio-list__item_selected,
+		.radio-list__item_selected:hover
+			padding: 0 16px 6px 0
+			box-shadow: none
+			background: none
+
+
+	.widget__form-size-item_name-720x240
+		.radio-list__icon
+			top: 4px
+
+@each $size in $widget_sizes
+	.widget__form-size-item_name-#{$size}
+		.radio-list__icon
+			+s(size-#{$size})
+		&.radio-list__item_selected
+			.radio-list__icon
+				+s(size-#{$size}-active)
+
+
+
+.widget__form-part
+	padding: 15px 0
+	&:first-child
+		padding-top: 0
+	&:last-child
+		padding-bottom: 0
+		border: none
+
+.widget-form-part
+	white-space: nowrap
+	@extend %clr
+	.widget-form-part__title
+		float: left
+		width: 110px
+		margin-top: 2px
+		text-align: right
+		+main_font_semibold
+		white-space: normal
+		line-height: 1
+	.widget-form-part__body
+		overflow: hidden
+		padding: 0 0 0 16px
+		white-space: normal
+
+	&.widget-form-part_radio-group,
+	&.widget-form-part_select
+		.widget-form-part__title
+			margin-top: 7px
+
+.widget__form-item
+	display: block
+	+box-sizing(border-box)
+	min-width: 160px
+
+	&.widget__form-item_inline
+		+ibt
+		margin-right: 80px
+		.widget__form-item-label
+			+ibm
+			margin: 0 6px 0 0
+			width: 110px
+			text-align: right
+		&:last-child
+			margin-right: 0
+
+.widget__form-item_code
+	display: block
+	margin: 24px 0 0
+	padding-right: 0
+	width: 270px
+
+.widget__form-item-label
+	display: block
+	margin: 0 60px 4px 0
+	font-size: 14px
+.widget__form-item-label-note
+	color: #828282
+
+.widget__form-item-main
+	+ibt
+	width: 40%
+	min-width: 300px
+	padding: 0 12px 6px 0
+	+box-sizing(border-box)
+.widget__form-item-aside
+	+ibt
+	width: 55%
+.widget__form-item-hint
+	margin: 3px 0 0
+	font-size: 0.9em
+	opacity: 0.5
+	&:first-child
+		margin: 0 0 3px
+
+
+.widget__fields-group-item
+	+ibt
+	padding: 0 12px 3px 0
+	width: 180px
+	+box-sizing(border-box)
+	+main_font_bold
+	color: #8E8E8E
+	cursor: pointer
+	@extend %press
+	&:hover
+		color: #525252
+	&.widget__fields-group-item_active
+		color: #000
+.widget__fields-group-item-label
+	+ibm
+.widget__fields-group-item-field
+	+ibm
+	margin: 0 4px 0 0
+
+.widget__fields-group_with-lead
+	padding-left: 160px
+	.widget__fields-group-item:first-child
+		margin-left: -160px
+		//font-family: 'OpenSans Bold'
+
+
+
+.widget__form-field_width,
+.widget__form-field_limit
+	width: 80px
+.widget__form-field_period
+	width: 120px
+.widget__form-field_text
+	width: 415px
+	padding: 2px 4px
+	vertical-align: middle
+	background: #FFF
+	border: 1px solid $color_border1
+	+box-sizing(border-box)
+	&.widget__form-field_flexible
+		width: 100%
+
+.widget__form-field_checkbox
+	margin: 0 2px 0 0
+	vertical-align: middle
+.widget__form-item_type-checkbox
+	.widget__form-item-label
+		+ibm
+		margin: 0
+
+.widget__form-field_textarea
+	width: 400px
+	height: 100px
+	+box-sizing(border-box)
+	resize: vertical
+	font-size: 12px
+	padding: 6px
+	outline: none
+	&.widget__form-field_textarea-expanded
+		height: 130px
+
+.widget__form-item_header
+	display: block
+	margin: 12px 0 0
+
+//Radio simple (black/white lists)
+.radio-simple
+	.radio-simple__title
+		margin: 0 0 6px
+
+	.radio-simple__item
+		+ibm
+		margin: 0 16px 6px 0
+	.radio-simple__field-wrap
+		display: block
+		position: relative
+		min-height: 20px
+		cursor: pointer
+	.radio-simple__field
+		+ibm
+		margin: 0 2px 0 0
+
+	.radio-simple__field-label
+		+ibm
+
+	.radio-simple__field-accent
+		+main_font_light_italic
+		font-size: 1.1em
+
+	.radio-simple__item-content
+		max-height: 0
+		overflow: hidden
+		+transition( max-height 0.3s ease-out )
+	.radio-simple__item-content-core
+		padding: 6px 0 6px 24px
+		visibility: hidden
+		+transition( all 0.1s )
+
+	.radio-simple__item-content-main
+		float: left
+		width: 50%
+		max-width: 400px
+		margin: 0 18px 0 0
+		.widget__form-field_textarea
+			width: 100%
+	.radio-simple__item-content-aside
+		overflow: hidden
+		opacity: 0.4
+		font-size: 0.9em
+		p
+			margin: 0 0 6px
+
+
+	//Selected item
+	.radio-simple__item_selected
+		.radio-simple__item-content
+			max-height: 400px
+		.radio-simple__item-content-core
+			visibility: visible
+
+
+	//Related block
+	.radio-simple__related
+		padding: 6px 0 0 72px
+
+//Border selector
+.widget__form-border-label
+	+ibm
+	margin: 0 6px 0 0
+//Border icon
+.border-icon
+	+ibm
+	min-height: 20px
+	line-height: 20px
+	text-align: center
+	//.border-icon__title
+	.border-icon__img
+		+ibm
+		min-width: 80px
+
+.widget-inline-selects
+	padding: 4px 0 0
+.widget-inline-select
+	+ibm
+	margin: 0 24px 0 0
+	white-space: nowrap
+	.widget-inline-select__label
+		+ibm
+		margin: 0 2px 0 0
+	.widget-inline-select__field
+		+ibm
+		font-size: 12px
+		width: 130px
+
+
+.widget__form-example
+	white-space: pre
+	+main_font_light_italic
+	font-size: 1.1em
+	cursor: pointer
+	&:hover
+		text-decoration: underline
+
+
+//Widget code
+.widget-code
+	display: block
+	position: relative
+	overflow: hidden
+	padding: 6px 12px
+	border: 1px solid #E5E5E5
+	background: #FFF
+.widget-code__text
+	padding: 16px 16px 16px 10px
+	opacity: 0.7
+	font-size: 0.9em
+.widget-code__field
+	display: block
+	width: 100%
+	min-height: 12.5em
+	min-width: 70em
+	border: none
+	color: #414141
+	background: none
+	font: 10px/1.2 'Courier New', monospace
+	resize: none
+	overflow: hidden
+	white-space: pre
+	outline: none
+
+//Widget preview
+.widget-preview__holder
+	min-width: 240px
+	min-height: 270px
+	margin: 0 auto
+	background: #FFF image_url('loader-light.gif') no-repeat center
+	+transition(all 0.3s ease-out)
+.widget-preview__iframe
+	width: 100%
+	height: 100%
+.widget-preview__note
+	padding: 3px 0
+	text-align: center
+	font-size: 14px
+	color: #818181
+.widget-preview__hint
+	padding: 14px 6px 6px
+	text-align: right
+	opacity: 0.8
+.widget-preview__hint-core
+	+ibt
+	position: relative
+	max-width: 160px
+	min-height: 40px
+	padding: 14px 0 0 40px
+	text-align: left
+	font: italic 12px/1.2 Georgia, serif
+	color: #898989
+	&:before
+		position: absolute
+		top: 0
+		left: 0
+		+s(point-arrow)
+		content: ' '

@@ -1,0 +1,17 @@
+<div data-dropdown class="border-selector widget-inline-selects">
+
+	<label class="widget-inline-select">
+		<select data-ng-options="option.value as option.title for option in borderData.widthPresets" data-ng-model="model.width" data-ng-change="onSelect()" class="widget-inline-select__field"></select>
+	</label>
+
+	<label class="widget-inline-select" data-ng-show="model.width">
+		<span class="widget-inline-select__label">Color</span>
+		<select data-ng-options="option.value as option.title for option in borderData.colorPresets" data-ng-model="model.color" data-ng-change="onSelect()" class="widget-inline-select__field"></select>
+	</label>
+
+	<label class="widget-inline-select" data-ng-show="model.width">
+		<span class="widget-inline-select__label">Corners</span>
+		<select data-ng-options="option.value as option.title for option in borderData.radiusPresets" data-ng-model="model.radius" data-ng-change="onSelect()" class="widget-inline-select__field"></select>
+	</label>
+
+</div>

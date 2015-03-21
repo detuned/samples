@@ -1,0 +1,23 @@
+<div class="geo-locale-switcher"
+     data-ng-class="{'geo-locale-switcher_opened':isOpened}">
+	<div
+			class="geo-locale-switcher__selected"
+			data-ng-class="'geo-locale-switcher__selected_id-' + activeGeoLocale.id"
+			data-ng-click="toggle()">
+		<span class="geo-locale-switcher__selected-title" data-hard-bind="activeGeoLocale.title"></span>
+	</div>
+	<div class="geo-locale-switcher__dropdown">
+		<div
+				class="geo-locale-switcher__selected"
+				data-ng-class="'geo-locale-switcher__selected_id-' + activeGeoLocale.id"
+				data-ng-click="toggle()">
+			<span class="geo-locale-switcher__selected-title" data-hard-bind="activeGeoLocale.title"></span>
+		</div>
+		<a class="geo-locale-switcher__item"
+		   data-ng-repeat="item in geoLocales track by item.id"
+		   data-ng-class="'geo-locale-switcher__item_id-' + item.id"
+		   data-ng-href="{{item.url}}">
+			<span class="geo-locale-switcher__title" data-hard-bind="item.title"></span>
+		</a>
+	</div>
+</div>

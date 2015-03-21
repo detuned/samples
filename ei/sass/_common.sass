@@ -1,0 +1,306 @@
+.icon
+	+ibm
+
+$icon_types: calend calend-disabled search close
+@each $icon_type in $icon_types
+	.icon_#{$icon_type}
+		+s(#{$icon_type})
+	
+@mixin main_font
+	font-family: "OpenSans", Arial, sans-serif
+
+@mixin main_font_light
+	font-family: "OpenSans Light", Arial, sans-serif
+
+@mixin main_font_semibold
+	font-family: "OpenSans Semibold", Arial, sans-serif
+
+@mixin main_font_bold
+	font-family: "OpenSans Bold", Arial, sans-serif
+
+@mixin main_font_light_italic
+	font-family: "OpenSans LightItalic", Arial, sans-serif
+
+@mixin content_container
+	display: block
+	margin: 0 auto
+	max-width: 1280px
+	min-width: 880px
+	width: 90%
+@mixin content_inner_container
+	display: block
+	padding: 0 12px
+
+@mixin regular_link
+	color: #1777C9
+	cursor: pointer
+	text-decoration: underline
+	&:hover
+		color: #EF5D5D
+
+@mixin blured_link
+	color: #818181
+	cursor: pointer
+	text-decoration: underline
+	&:hover
+		color: #000
+
+@mixin js-link
+	border-bottom: 1px dashed
+	color: #1777C9
+	cursor: pointer
+	text-decoration: none
+	&:hover
+		color: #EF5D5D
+
+html,
+body
+	margin: 0
+	padding: 0
+	height: 100%
+body
+	background: $color_main_bg
+	color: $color_main_font
+	text-align: left
+	font-size: 1em
+	line-height: 1.3
+	font-style: normal
+	font-weight: normal
+	overflow-y: scroll
+	+main_font
+
+.page-wrap
+	height: auto !important
+	min-height: 100%
+	
+.page-body
+	padding-bottom: $footer_height
+
+.content
+	+content_container
+	.content__core
+		+content_inner_container
+
+
+.middle-space
+	@extend %clr
+.middle-space__aside
+	display: none
+.has-aside
+	.middle-space__aside
+		display: block
+		float: right
+		width: $aside_width + $aside_side_padding
+		min-height: 1px //To make it visible even if it has no content
+	.middle-space__body
+		overflow: hidden
+
+
+.project-name
+	.project-name__prefix
+		text-transform: lowercase
+		+main_font_light_italic
+	.project-name__main
+		text-transform: uppercase
+
+.a-dropdown
+	+ibm
+	position: relative
+	&.open
+		z-index: 10000
+	.a-dropdown__button
+		+ibm
+		white-space: nowrap
+		height: 36px
+		line-height: 26px
+		padding: 0 14px 0 10px
+		border: none
+		border-radius: 4px
+		cursor: pointer
+		text-align: left
+		background: $color_button_bg
+		color: #FFF
+		font-size: 14px
+		+unselectable
+		&:hover
+			background: lighten($color_button_bg, 5%)
+		&:active
+			box-shadow: inset 0 1px 1px rgba(0,0,0,0.4)
+			line-height: 38px
+
+
+	.a-dropdown__icon
+		position: relative
+		margin-right: 6px
+	.a-dropdown__caret
+		+s(down)
+		+ibm
+		margin-left: 14px
+
+	.a-dropdown__body
+		display: none
+		position: absolute
+		top: 100%
+		left: 0
+		min-width: 100%
+		max-width: 400px
+	&.open .a-dropdown__body
+		display: block
+		background: #FFF
+		box-shadow: 0 1px 2px rgba(0,0,0,0.3)
+
+	.a-dropdown__option
+		display: block
+		cursor: pointer
+		padding: 6px 6px
+		border-bottom: 1px solid #eeeeee
+		&:hover
+			background: $color_highlight
+			color: #FFF
+
+	&.a-dropdown_period
+		.a-dropdown__body
+			min-width: 300px
+			min-height: 50px
+	&.a-dropdown_list
+		.a-dropdown__body
+			border-radius: 0 0 4px 4px
+	&.a-dropdown_sources
+		.a-dropdown__button
+			min-width: 140px
+
+// Buttons
+.button
+	+ibm
+	position: relative
+	border: 1px solid
+	border-color: $color_button_border
+	padding: 0 9px
+	height: $button_height
+	line-height: $button_height
+	white-space: nowrap
+	cursor: pointer
+	@extend %press
+	+transition( color,background,border-color 0.3s )
+	+unselectable
+	border-radius: $button_border_radius
+	text-align: center
+	font-size: 13px
+	text-decoration: none
+	color: #000
+	&:hover
+		border-color: #000
+	&.button_highlighted
+		border-color: #F35D5D
+		background: #F35D5D
+		color: $color_button_active
+	&.button_active
+		box-shadow: inset 0 2px 2px rgba(0,0,0,0.8)
+		border-color: $color_button_bg_active
+		background: $color_button_bg_active
+		color: $color_button_active
+
+	&.button_control
+		text-transform: uppercase
+		letter-spacing: 1px
+		font-size: 11px
+		line-height: 27px
+		&.button_active
+			padding-left: 9px
+			background: $color_button_active
+			color: #FFF
+			&:before,
+			&:after,
+			&:hover:after
+				display: none
+			&:hover
+				border-color: $color_button_active
+				background: $color_button_active
+			&:active
+				border-color: $color_button_active
+				background: $color_button_active
+
+	&.button_dropdown
+		position: relative
+		padding-right: 20px
+		&:hover
+			border-color: #F35D5D
+		&:after
+			display: block
+			position: absolute
+			top: 0
+			right: 5px
+			bottom: 0
+			margin: auto 0
+			content: ' '
+			+s(dropdown-knob)
+		&.button_active
+			border-color: #F35D5D
+			background: #F35D5D
+			box-shadow: none
+			&:after
+				+s(dropdown-knob-up-light)
+
+.button_alt
+	border-color: transparentize(#080,0.8)
+	color: #080
+	&:hover
+		color: #000
+		border-color: #000
+
+.button_inverted
+	border-color: transparentize(#FFF,0.8)
+	color: #FFF
+	&:hover
+		border-color: #FFF
+		background-color: #FFF
+		color: #000
+.button_xl
+	font-size: 16px
+	height: 32px
+	line-height: 32px
+	padding: 0 16px
+
+
+.button_icon-only
+	line-height: 24px
+
+// Special sources buttons
+@each $sources_icon in $sources_icons
+	.button_source-#{$sources_icon}
+		padding-left: 28px
+		&:after
+			display: block
+			position: absolute
+			top: 0
+			left: 8px
+			bottom: 0
+			margin: auto 0
+			content: ' '
+			+s(source-#{$sources_icon})
+			+grayscale
+		&.button_active:after,
+		&.button:hover:after
+			+ungrayscale
+
+
+.back-link
+	display: block
+	margin: 0 0 8px
+	min-height: 44px
+	background: $settings_bg
+	color: #FFF
+	.back-link__title
+		+ibm
+		height: 44px
+		line-height: 44px
+		vertical-align: baseline
+		text-transform: uppercase
+		font-size: 18px
+		+main_font_bold
+		color: #FFF
+		&:before
+			vertical-align: baseline
+			margin: 0 12px -5px 0
+			content: ' '
+			+s(arrow-back)

@@ -1,0 +1,23 @@
+<div class="pause"
+     data-ng-click="togglePause()"
+     data-ng-class="{
+     'pause_paused':isPaused(),
+     'pause_played':!isPaused(),
+     'pause_frozen': isFrozen()
+     }">
+		<span class="pause__button" role="timeIndicator"><span
+				class="pause__button-icon"></span>
+		</span>
+		<span class="pause__status">
+			<span class="pause__status-text pause__status-text_playing">
+				Next update in <span class="pause__status-text-accent"
+				                     data-ng-bind="getTimeToUpdate() + ' sec'"></span>
+			</span>
+			<span class="pause__status-text pause__status-text_paused">
+				Paused
+			</span>
+			<span class="pause__status-text pause__status-text_frozen">
+				Updating...
+			</span>
+		</span>
+</div>

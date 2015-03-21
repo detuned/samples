@@ -1,0 +1,466 @@
+$header_height: 56px
+$header_vert_padding: 8px
+$header_inner_height: $header_height - $header_vert_padding * 2
+
+.header
+	position: fixed
+	top: 0
+	right: 0
+	left: 0
+	height: $header_height
+	z-index: 100
+	box-shadow: 0 1px 10px rgba(0,0,0,0.25)
+	background: $color_header_bg
+.header-holder
+	visibility: hidden
+	height: $header_height
+.header__content-core
+	@extend %clr
+.logo
+	+unselectable
+	display: block
+	cursor: default
+	height: $header_inner_height
+	line-height: $header_inner_height - 4px
+	text-decoration: none
+	font-size: 24px
+	+main_font_bold
+	min-width: 125px
+	text-transform: uppercase
+	color: #1777C9
+	.logo__img
+		+ibm
+		+s(logo)
+		margin-right: 5px
+	.logo__prefix
+		+main_font_light_italic
+		letter-spacing: 1px
+		text-transform: lowercase
+	&.is-clickable
+		cursor: pointer
+
+	&.logo_compact
+		height: auto
+		line-height: 16px
+a.logo
+	cursor: pointer
+.header__section
+	float: left
+	min-height: $header_inner_height
+	+box-sizing(border-box)
+	margin: 8px 16px 8px 0
+	padding: 3px 16px 0 0
+	border-right: 3px solid #EF5D5D
+	&:first-child:last-child
+		border: none
+
+	&.header__section_logo
+		padding-right: 21px
+		text-align: right
+
+	&.header__section_chart
+		margin-right: 20px
+		padding: 0
+		border: none
+
+	&.header__section_stat
+		border-color: #EEE
+		min-width: 110px
+		.header__digit
+			line-height: 1.2
+			&:first-child:last-child
+				line-height: 26px
+		&.header__section_stat-inactive
+			.header__digit
+				visibility: hidden
+
+.header_with-search
+	+max-screen(1280)
+		.header__section_chart,
+		.header__section_stat
+			display: none
+
+//Sparkline
+.sparkline
+	position: relative
+	width: 130px
+	height: $header_inner_height
+	.sparkline__chart
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		margin: auto 0
+		height: $header_inner_height / 2
+	.sparkline__grid
+		display: block
+		position: absolute
+		right: 0
+		left: 0
+		height: 1px
+		background: #E0E0E0
+		.sparkline__grid-value
+			display: block
+			position: absolute
+			+main_font_semibold
+			font-size: 8px
+			line-height: 1
+			white-space: nowrap
+			background: $color_header_bg
+			color: #919191
+		&.sparkline__grid_max
+			top: 5px
+			.sparkline__grid-value
+				right: 0
+				bottom: 0
+				padding: 0 0 0 4px
+		&.sparkline__grid_min
+			bottom: 5px
+			.sparkline__grid-value
+				top: 0
+				left: 0
+				padding: 0 4px 0 0
+
+
+.header__digit
+	display: block
+	font-size: 12px
+	.header__digit-num
+		+main_font_semibold
+		&.header__digit-num_diff-negative,
+		&.header__digit-num_diff-positive
+			position: relative
+			&:before
+				position: absolute
+				display: block
+				top: 6px
+				right: 100%
+				margin: 0 3px 0 0
+				content: ' '
+		&.header__digit-num_diff-negative
+			&:before
+				+s(diff-tiny-negative)
+		&.header__digit-num_diff-positive
+			&:before
+				+s(diff-tiny-positive)
+
+
+	.header__digit-title
+		color: #818181
+
+
+//Pause
+$pause_fill_grads_num: 60
+$pause_fill_grad: 360 / $pause_fill_grads_num
+$pause_bg: #1777C9
+$pause_fill_bg: #8DBCE5
+
+.pause
+	cursor: pointer
+	+unselectable
+	.pause__button
+		+ibm
+		position: relative
+		width: 29px
+		height: 29px
+		border-radius: 50%
+		background-color: $pause_bg
+		overflow: hidden
+		text-align: center
+		line-height: 25px
+		cursor: pointer
+		color: $color_button_bg
+		+transition( background 0.3s )
+
+		.pause__button-icon
+			+abs0
+			margin: auto
+			+s(pause)
+
+	&.pause_paused
+		.pause__button svg
+			display: none !important //Hide progressBar
+
+	&.pause_frozen
+		.pause__button svg
+			display: none !important //Hide progressBar
+
+	&:hover
+		.pause__button
+			background-color: lighten(#1777C9, 10%)
+	&:active
+		.pause__button
+			box-shadow: inset 0 1px 1px rgba(0,0,0,0.3)
+			.pause__button-icon
+				top: 1px
+	.pause__status
+		+ibm
+		margin: 0 0 0 8px
+		.pause__status-text
+			+ibm
+			font-size: 12px
+			line-height: 1.1
+			color: #818181
+		.pause__status-text_paused,
+		.pause__status-text_frozen
+			display: none
+		.pause__status-text-accent
+			display: block
+			color: #050505
+			+main_font_semibold
+
+	&.pause_paused
+		.pause__button
+			opacity: 1
+		.pause__button-icon
+			+s(play)
+		.pause__status-text_paused
+			display: inline-block
+		.pause__status-text_playing
+			display: none
+
+	&.pause_frozen
+		cursor: default
+		&:active
+			top: 0
+			.pause__button-icon
+				top: 0
+		.pause__button
+			opacity: 1
+		.pause__status
+			.pause__status-text_playing,
+			.pause__status-text_paused
+				display: none
+			.pause__status-text_frozen
+				display: inline-block
+
+
+// Search
+.header__search
+	float: right
+	margin: $header_vert_padding 0
+.search
+	+ibm
+	position: relative
+	height: $header_inner_height
+	line-height: $header_inner_height - 4
+	overflow: hidden
+	white-space: nowrap
+	.search__icon
+		+ibm
+		+s(search)
+		cursor: pointer
+		@extend %press
+	.search__form
+		+ibm
+		width: 320px
+		margin-right: -320px
+		+transition( margin 0.3s ease-out )
+
+
+	//Form active
+	&.search_active
+		.search__form
+			margin-right: 0
+			width: auto
+		.search__icon
+			display: none
+
+
+	.search__caption
+		+ibm
+		+main_font_light
+		margin: 0 4px 0 0
+		font-size: 12px
+		text-transform: uppercase
+		color: #737373
+	.search__caption-accent
+		+main_font_semibold
+	.search__field-wrap
+		+ibm
+		position: relative
+		line-height: 1.3
+		padding: 0 30px 0 12px
+		border-radius: 16px
+		border: 1px solid #E5E5E5
+		box-shadow: inset 0 0 4px rgba(0,0,0,0.15)
+		background: #F8F8F8
+		+transition( background 0.3 ease )
+	.search__field
+		border: none
+		width: 160px
+		padding: 5px 0
+		background: none
+		vertical-align: middle
+		+main_font_semibold
+		font-size: 12px
+		line-height: inherit
+		+transition(width 0.3s ease-out)
+		&:focus
+			outline: none
+	.search__closer
+		position: absolute
+		top: 0
+		right: 4px
+		bottom: 0
+		margin: auto 0
+		+s(search-close)
+		cursor: pointer
+		&:active
+			top: 2px
+
+	&.search_highlighted
+		.search__field-wrap
+			background: #FFFFC0
+
+
+//Period
+.header__period
+	overflow: hidden
+	white-space: nowrap
+	margin: 0 auto
+	height: $header_height
+	line-height: $header_height
+	text-align: center
+	text-transform: uppercase
+	font-size: 12px
+	+main_font_light
+	color: #737373
+	.header__period-label
+		+ibt
+		+max-screen(1100)
+			display: none
+	.header_with-search &
+		.header__period-label
+			display: none
+
+.revolver
+	+ibt
+	padding: 0 3px
+	cursor: pointer
+	+transition( background 0.5s )
+	+unselectable
+	overflow: hidden
+	height: $header_height
+	.revolver__value
+		height: $header_height
+		line-height: $header_height
+		cursor: pointer
+		text-shadow: 0 0 15px $color_header_bg
+		+transition(none)
+	.revolver__value_next
+		margin-top: - $header_height
+	.revolver__value-title
+		color: #1777C9
+		border-bottom: 1px dashed
+		line-height: 1
+
+	&.revolver_show-next
+		.revolver__value
+			+transition(margin 0.4s ceaser($easeOutBack))
+		.revolver__value_next
+			margin-top: 0
+		.revolver__value_current
+			margin-top: $header_height / 2
+	&:hover,
+	&.revolver_rolling
+		@include background-image( linear-gradient( top,  #EBF2F8, #FFF 50%, #EBF2F8) )
+
+
+
+.header__section_pause
+	min-width: 172px
+
+
+.geo-locale-switcher
+	position: relative
+	display: inline-block
+	vertical-align: top
+	margin: 5px 0 0
+	font-size: 12px
+	min-width: 120px
+	+main_font_light
+	color: #333
+
+	.geo-locale-switcher__selected
+		display: block
+		position: relative
+		cursor: pointer
+		height: 16px
+		line-height: 16px
+		white-space: nowrap
+		padding: 0 22px 0 0
+		.geo-locale-switcher__selected-title
+			display: inline-block
+			position: relative
+			border-bottom: 1px dotted
+			&:before
+				display: block
+				position: absolute
+				top: 50%
+				right: 100%
+				margin: -2px 4px 0 0
+				+s(dropdown-knob-simple)
+				content: ' '
+		&:hover
+			.geo-locale-switcher__selected-title
+				color: #EF5D5D
+				&:before
+					+s(dropdown-knob-simple-active)
+		&:before
+			position: absolute
+			top: 1px
+			right: 0
+			display: block
+			content: ' '
+	@each $flag in $flags
+		.geo-locale-switcher__selected_id-#{$flag}
+			&:before
+				+s(flag-#{$flag})
+
+	.geo-locale-switcher__dropdown
+		display: block
+		position: absolute
+		top: -4px
+		right: -8px
+		visibility: hidden
+		background: #FFF
+		overflow: hidden
+		max-height: 0
+		min-width: 120px
+		+transition(all 0.3s ease-out)
+		.geo-locale-switcher__selected
+			margin: 4px 8px 4px 10px
+	&.geo-locale-switcher_opened
+		.geo-locale-switcher__dropdown
+			box-shadow: 0 2px 6px rgba(0,0,0,0.4)
+			max-height: 300px
+			visibility: visible
+
+	.geo-locale-switcher__item
+		display: block
+		position: relative
+		padding: 4px 30px 4px 10px
+		text-decoration: none
+		height: 18px
+		line-height: 18px
+		color: #333
+		&:before
+			position: absolute
+			top: 6px
+			right: 8px
+			display: block
+			content: ' '
+		&:hover
+			background: #3397EB
+			color: #FFF
+		&:last-child
+			padding-bottom: 6px
+	@each $flag in $flags
+		.geo-locale-switcher__item_id-#{$flag}
+			&:before
+				+s(flag-#{$flag})
+	.geo-locale-switcher__item_id-world:hover
+		&:before
+			+s(flag-world-active)

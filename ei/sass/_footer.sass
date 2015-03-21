@@ -1,0 +1,31 @@
+.footer
+	position: relative
+	height: $footer_height
+	margin-top: - $footer_height
+.footer__text
+	text-align: left
+	font-size: 12px
+	.mode-text &
+		padding-left: 0
+.footer__item
+	+ibt
+	color: #050505
+	margin: 0 24px 0 0
+a.footer__item
+	+link-bordered(#050505,#000)
+	@extend %press
+.footer__item_copyright
+	font-size: 14px
+.footer__menu
+	+ibm
+	.footer__menu-item
+		+ibm
+		margin: 0 24px 0 0
+	.footer__menu-link
+		@extend %press
+		color: $color_link1
+		+transition( color 0.2s )
+		&:hover
+			color: $color_link1_hover
+
+		

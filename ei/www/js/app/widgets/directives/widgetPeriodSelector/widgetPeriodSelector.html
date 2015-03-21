@@ -1,0 +1,11 @@
+<div class="radio-group radio-group_separate">
+	<label
+			data-ng-repeat="option in options"
+			class="radio-group__item"
+			data-ng-model="radioModel.id"
+			data-btn-radio="option.id"
+			data-ng-bind="option.title"
+			data-ng-click="select(option)"
+			></label>
+
+</div>

@@ -1,0 +1,14 @@
+<div class="aside-block aside-block_domain-chart domain-chart" data-ng-hide="! chart.length" data-ng-cloak >
+	<h2 class="domain-chart__title">Trending resources</h2>
+	<div class="domain-chart__list">
+		<a class="domain-chart__item {{item.hostSignature}}"
+		     data-ng-repeat="item in chart"
+		     data-ng-href="{{getDomainHref( item )}}">
+			<span class="domain-chart__item-name">
+				<span class="domain-chart__item-icon"></span>
+				<span class="domain-chart__item-title" data-ng-bind="item.normalizedHost"></span>
+			</span>
+			<span class="domain-chart__item-value" data-ng-bind="item.count|numberFormat"></span>
+		</a>
+	</div>
+</div>
