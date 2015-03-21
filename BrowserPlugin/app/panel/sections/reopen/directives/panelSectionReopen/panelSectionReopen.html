@@ -1,0 +1,77 @@
+<div id="pn-panel-reopen" class="pn-reopen"
+     data-ng-class="{
+		'pn-reopen_custom' : state.custom,
+		'pn-reopen-custom-ext' : state.custom && custom.repeat
+		}">
+	<div class="pn-reopen__set">
+		<div class="pn-reopen__set-title"
+		     data-ng-bind="'reopen_page_after'|l10n"></div>
+		<div class="pn-reopen__presets">
+			<textarea type="text" class="pn-field pn-field_textarea pn-field_small-font pn-reopen__presets-note" data-ng-model="presetsNote" placeholder="{{'reopen_custom_note_placeholder'|l10n}}"></textarea>
+			<div class="pn-reopen__presets-list">
+				<div
+						class="pn-reopen__preset"
+						data-ng-repeat="preset in reopenPresets"
+						data-ng-bind="preset.title"
+						data-ng-click="activatePreset( preset )"
+				        data-ng-class="[
+				            'pn-reopen__preset_index-' + preset.unitIndex,
+				            'pn-reopen__preset_unit-' + preset.unit]"
+						></div><div
+						class="pn-reopen__preset pn-reopen__preset_custom"
+						data-ng-click="switchCustomMode( true )"
+				        data-ng-bind="'reopen_custom_preset'|l10n"
+						>
+				</div>
+			</div>
+		</div>
+		<div class="pn-reopen__custom">
+
+
+			<div class="pn-reopen__custom-group">
+				<input type="number" step="1" min="1" class="pn-field pn-field_number" name="time" data-ng-model="custom.timeValue" />
+				<select
+						class="pn-field pn-field_select pn-field_select-inline"
+						data-ng-model="custom.timeUnit"
+						data-ng-options="unit.value as unit.title for unit in customUnits"
+						></select>
+			</div>
+
+			<div class="pn-reopen__custom-group pn-reopen__custom-group_note">
+				<textarea type="text" class="pn-field pn-field_textarea pn-field_small-font" data-ng-model="custom.note" placeholder="{{'reopen_custom_note_placeholder'|l10n}}" data-keymaster="{'ctrl+enter, ⌘+enter':'customSubmit()'}"></textarea>
+			</div>
+
+			<div class="pn-reopen__custom-group pn-reopen__custom-group_repeat pn-reopen-repeat"
+					data-ng-class="{
+						'pn-reopen-repeat_active' : custom.repeat
+					}">
+
+				<label class="pn-reopen-repeat__level">
+					<input type="checkbox" name="repeat" data-ng-model="custom.repeat" class="pn-field pn-field_checkbox" data-ng-change="custom.repeatUnit = custom.timeUnit; custom.repeatEach = custom.timeValue"/>
+					<span class="pn-reopen__custom-label" data-ng-bind="'reopen_repeat'|l10n"></span>
+						<span class="pn-reopen__custom-label" data-ng-bind="'reopen_every'|l10n" data-ng-hide=" ! custom.repeat "></span>
+				</label>
+
+				<label class="pn-reopen-repeat__level" data-ng-hide=" ! custom.repeat ">
+					<input type="number" step="1" min="1" class="pn-field pn-field_number" name="repeatEach" data-ng-model="custom.repeatEach" />
+					<select
+							class="pn-field pn-field_select pn-field_select-inline"
+							data-ng-model="custom.repeatUnit"
+							data-ng-options="unit.value as unit.title for unit in repeatUnits"
+							></select>
+				</label>
+
+			</div>
+
+			<div class="pn-reopen__custom-group pn-reopen__custom-group_submit">
+				<input type="button" class="pn-reopen__submit pn-button" value="{{'save_and_close'|l10n}}" data-ng-click="customSubmit()" />
+				<span class="pn-reopen__cancel pn-button pn-button_textual" data-ng-bind="'cancel'|l10n"  data-ng-click="switchCustomMode( false )"></span>
+			</div>
+		</div>
+	</div>
+	<div class="pn-reopen__list pn-reopen-list">
+		<div data-ng-repeat="item in reopenTasks">
+			<div class="pn-reopen-item" data-pn-reopen-task="item"></div>
+		</div>
+	</div>
+</div>

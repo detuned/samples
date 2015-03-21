@@ -1,0 +1,237 @@
+<div id="pn-panel-settings" class="pn-settings">
+
+	<div class="pn-ext-auth">
+		<div class="pn-ext-auth__header">
+			<div class="pn-ext-auth__title" data-hard-l10n="ext_auth_login"></div>
+		</div>
+		<div class="pn-ext-auth__body">
+			<div
+					class="pn-ext-auth-button"
+					data-ng-click="socialAuth( provider )"
+					data-ng-repeat="provider in socialProviders" data-ng-class="[
+							'pn-ext-auth-button_name-' + provider.id,
+							provider.auth ? 'pn-ext-auth-button_active' : ''
+							]"
+					>
+				<div class="pn-ext-auth-button__title" data-hard-bind="provider.title"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="pn-panel__tabs pn-panel__tabs_classic" id="pn-panel-settings-tabs">
+		<div class="pn-panel__tab"
+		     data-ng-bind="'settings_tab_friends'|l10n"
+		     data-ng-class="{'pn-panel__tab_active':state.tab == 'friends'}"
+		     data-ng-click="switchTab( 'friends' )"></div><div class="pn-panel__tab"
+		     data-ng-bind="'settings_tab_personal'|l10n"
+		     data-ng-class="{'pn-panel__tab_active':state.tab == 'personal'}"
+		     data-ng-click="switchTab( 'personal' )"></div>
+	</div>
+
+	<div class="pn-panel__tabs-bodies pn-panel__tabs-bodies_classic">
+
+		<div class="pn-panel__tab-body" role="tab-personal" data-ng-show="state.tab == 'personal'">
+			<div class="pn-settings__section pn-settings__section_name-info"
+			     data-ng-class="{
+	     'pn-settings__section_loading' : state.infoLoading
+	     }"
+			     data-ng-show="userHasGrant('changeInfo')"
+					>
+
+				<div class="pn-settings__header">
+					<div class="pn-settings__avatar"><div class="pn-settings__avatar-img" data-ng-style="{'background-image':'url(' +  avatar + ')'}"></div></div>
+					<div class="pn-settings__section-title" data-ng-bind="'personal_info'|l10n"></div>
+					<span class="pn-settings__id">
+						<span data-hard-l10n="your_id" class="pn-settings__id-label"></span>
+						<span data-ng-bind="uid" class="pn-settings__id-value"></span>
+					</span>
+				</div>
+				<div class="pn-settings__section-core">
+
+
+					<div class="pn-settings__field-wrap"
+					     data-ng-class="{'pn-settings__field-wrap_empty':isHighlightEmpty('name')}">
+						<label class="pn-settings__field-core">
+							<span class="pn-settings__field-label" data-ng-bind="'name_label'|l10n"></span>
+							<input type="text"
+							       name="pnPanelSettingsNameField"
+							       class="pn-field pn-settings__field"
+							       data-ng-model="infoTmp.name"
+							       autocomplete="off"
+							       role="nameField"
+							       data-ng-change="infoErrors.name = ''"
+							       data-enter-press="submitInfo()"
+							       tabindex="1"
+									/>
+						</label>
+						<div class="pn-error" data-ng-bind="infoErrors.name" data-ng-show="infoErrors.name"></div>
+					</div>
+
+
+					<div class="pn-settings__field-wrap"
+					     data-ng-class="{'pn-settings__field-wrap_empty':isHighlightEmpty('email')}">
+						<label class="pn-settings__field-core">
+							<span class="pn-settings__field-label" data-ng-bind="'email_label'|l10n"></span>
+							<input type="text"
+							       name="pnPanelSettingsEmailField"
+							       class="pn-field pn-settings__field"
+							       data-ng-model="infoTmp.email"
+							       autocomplete="off"
+							       role="emailField"
+							       data-ng-change="infoErrors.email = ''"
+							       data-enter-press="submitInfo()"
+							       tabindex="2"
+									/>
+						</label>
+						<div class="pn-error" data-ng-bind="infoErrors.email" data-ng-show="infoErrors.email"></div>
+					</div>
+
+
+					<div class="pn-settings__field-wrap"
+					     data-ng-class="{'pn-settings__field-wrap_empty':isHighlightEmpty('tel')}">
+						<label class="pn-settings__field-core">
+							<span class="pn-settings__field-label" data-ng-bind="'tel_label'|l10n"></span>
+							<input type="text"
+							       name="pnPanelSettingsTelField"
+							       class="pn-field pn-settings__field"
+							       data-ng-model="infoTmp.tel"
+							       autocomplete="off"
+							       role="telField"
+							       data-ng-change="infoErrors.tel = ''"
+							       data-enter-press="submitInfo()"
+							       tabindex="3"
+									/>
+						</label>
+						<div class="pn-error" data-ng-bind="infoErrors.tel" data-ng-show="infoErrors.tel"></div>
+					</div>
+
+					<button type="button"
+					        class="pn-button"
+					        data-ng-bind="'save'|l10n"
+					        data-ng-click="submitInfo()"
+					        tabindex="4"></button>
+					<span class="pn-settings__success-label" data-ng-bind="infoSuccessLabel"></span>
+				</div>
+			</div>
+
+
+			<div class="pn-settings__section pn-settings__section_name-pref"
+			     data-ng-class="{
+	     'pn-settings__section_loading' : state.prefLoading
+	     }"
+			     data-ng-show="userHasGrant('changePref')">
+				<div class="pn-settings__section-title" data-hard-l10n="personal_settings"></div>
+				<div class="pn-settings__section-core">
+
+					<div class="pn-pref">
+						<div class="pn-pref__title" data-hard-l10n="dont_send_mail_about"></div>
+						<div class="pn-pref__list">
+							<label class="pn-pref__item" data-ng-repeat="item in prefFlags track by item.id" data-ng-if="!item.tabs">
+								<input type="checkbox" class="pn-pref__checkbox" data-ng-model="prefTmp[item.id]"/>
+								<span class="pn-pref__label" data-ng-bind="item.title"></span>
+							</label>
+						</div>
+					</div>
+
+					<div class="pn-pref pn-pref_tabs">
+						<div class="pn-pref__title" data-hard-l10n="dont_show_tabs"></div>
+						<div class="pn-pref__list">
+							<label class="pn-pref__item" data-ng-repeat="item in prefFlags track by item.id" data-ng-if="item.tabs">
+								<input type="checkbox" class="pn-pref__checkbox" data-ng-model="prefTmp[item.id]" data-ng-change="onPrefChange( item.id )"/>
+								<span class="pn-pref__label" data-ng-bind="item.title"></span>
+							</label>
+						</div>
+					</div>
+
+					<div class="pn-settings__particular-field pn-settings__field-wrap">
+						<label class="pn-settings__field-core">
+							<span class="pn-settings__field-label" data-hard-l10n="lang_label"></span>
+							<select
+									class="pn-field pn-field_select pn-field_select-limited"
+									data-ng-model="prefTmp.lang"
+									data-ng-options="l.id as l.title for l in langs"
+									></select>
+						</label>
+					</div>
+				</div>
+				<button type="button"
+				        class="pn-button"
+				        data-ng-bind="'save'|l10n"
+				        data-ng-click="submitPref()"
+				        ></button>
+				<span class="pn-settings__success-label" data-ng-bind="prefSuccessLabel"></span>
+			</div>
+
+			<div class="pn-settings__section pn-settings__section_name-token"
+			     data-ng-class="{ 'pn-settings__section_busy' : ! state.ready }"
+			     data-ng-show="userHasGrant('changeToken')"
+					>
+				<div class="pn-settings__section-title" data-ng-bind="'token_form_title'|l10n"></div>
+				<div class="pn-settings__section-core">
+					<div class="pn-settings__field-wrap">
+						<label class="pn-settings__field-core">
+							<span class="pn-settings__field-label" data-ng-bind="'token_label'|l10n"></span>
+							<input type="text"
+							       name="pnPanelSettingsTokenField"
+							       class="pn-field pn-settings__field"
+							       data-ng-model="token.value"
+							       autocomplete="off"
+							       role="tokenField"
+							       data-ng-change="token.error = ''"
+							       data-enter-press="setToken()"
+									/>
+						</label>
+						<div class="pn-settings__field-warning" data-ng-bind="'token_warning'|l10n"></div>
+						<div class="pn-error" data-ng-bind="token.error" data-ng-show="token.error"></div>
+					</div>
+					<button type="button"
+					        class="pn-button"
+					        data-ng-bind="'change'|l10n"
+					        data-ng-click="setToken()"></button>
+				</div>
+			</div>
+
+			<div class="pn-settings__app-info">
+				<div class="pn-settings__app-info-ver" data-ng-bind="'app_version'|l10n:manifest.assemblyVersion"></div>
+			</div>
+		</div>
+
+		<div class="pn-panel__tab-body pn-settings__friends" role="tab-friends" data-ng-show="state.tab == 'friends'">
+
+
+			<div data-ng-if="! isGrantedToSetRelations()" class="pn-settings__friends-disable-note pn-disable-note">
+				<div class="pn-disable-note__text" data-hard-l10n="settings_friends_disable_note"></div>
+				<div class="pn-disable-note__action pn-button" data-hard-l10n="settings_friends_disable_action" data-ng-click="switchTab('personal')"></div>
+			</div>
+			<div data-ng-if="isGrantedToSetRelations()">
+				<div data-relations-list
+				     data-search
+				     class="pn-settings__add-friends"
+				     data-title="relations_add_friends"
+				     data-actions="invite"
+				     data-disable-related
+				     data-show-rel-state
+						></div>
+				<div data-relations-list
+				     data-state-id="{{REL_STATES.INVITED_BY}}"
+				     data-title="relations_invited_by_title"
+				     data-actions="approveInvite,declineInvite"
+				     data-show-select-all
+						></div>
+				<div data-relations-list
+				     data-state-id="{{REL_STATES.INVITED}}"
+				     data-title="relations_invited_title"
+				     data-actions="cancelInvited"
+						></div>
+				<div data-relations-list
+				     data-state-id="{{REL_STATES.FRIEND}}"
+				     data-title="relations_friends_title"
+				     data-actions="cancelFriend"
+				     data-edit-on-demand
+				     data-inline-view
+				     data-item-editable
+						></div>
+			</div>
+		</div>
+	</div>
+</div>

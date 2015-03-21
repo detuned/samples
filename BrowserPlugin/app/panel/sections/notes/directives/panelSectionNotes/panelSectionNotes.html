@@ -1,0 +1,28 @@
+<div id="pn-panel-notes" class="pn-notes" data-ng-class="{
+	'pn-notes_empty': ! notes.length,
+	'pn-notes_add-focus': newNote.text
+}">
+	<div class="pn-notes__add">
+		<textarea
+				name="newNoteText"
+				data-ng-model="newNote.text"
+				data-keymaster="{'ctrl+enter, ⌘+enter':'addNote()'}"
+				class="pn-field pn-field_textarea pn-notes__add-field"
+				autocomplete="off"
+				placeholder="{{'notes_add'|l10n}}"
+				role="addNotesField"
+				></textarea>
+
+		<div class="pn-notes__submit-wrap">
+			<input type="button"
+			       class="pn-notes__submit pn-button"
+			       value="{{'note_add'|l10n}}"
+			       data-ng-click="addNote()"/>
+		</div>
+	</div>
+	<div class="pn-notes__list pn-notes-list">
+		<div data-ng-repeat="note in notes">
+			<div data-pn-note="note" class="pn-notes__item"></div>
+		</div>
+	</div>
+</div>

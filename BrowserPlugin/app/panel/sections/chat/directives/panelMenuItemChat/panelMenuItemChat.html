@@ -1,0 +1,11 @@
+<span class="pn-menu__item__core">
+	<span class="pn-menu__img" data-ng-show="getOnlines() <= 1">
+		<span class="pn-menu__icon"></span><span class="pn-menu__mark"></span>
+		<span class="pn-menu__updates" data-ng-bind="getUpdates()" data-ng-show="getUpdates()"></span>
+	</span>
+	<span class="pn-menu__img pn-menu__img_chat-onlines" data-ng-show="getOnlines() > 1 ">
+		<span class="pn-menu__icon"></span><span class="pn-menu__mark"></span><span class="pn-menu__chat-onlines" data-ng-bind="getOnlines()"></span>
+		<span class="pn-menu__updates" data-ng-bind="getUpdates()" data-ng-show="getUpdates()"></span>
+	</span>
+	<span class="pn-menu__title" data-ng-bind="section.title"></span>
+</span>

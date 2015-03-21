@@ -1,0 +1,41 @@
+<div id="pn-panel-chat" class="pn-chat" data-ng-class="{
+	'pn-chat_empty': ! messages.length,
+	'pn-chat_add-focus': newMessage.text,
+	'pn-chat_loading-archive': state.loadingArchive
+}">
+	<div class="pn-chat__list pn-chat-list"
+	     data-panel-scrollable-area
+	     data-position="top"
+	     data-preserve-scroll="bottom"
+		 role="messagesList"
+		>
+		<div role="messagesListContent">
+			<div class="pn-chat__more" data-ng-click="showMore()" data-ng-show="hasMore()">
+				<div class="pn-chat__more-text" data-ng-bind="'more'|l10n"></div>
+			</div>
+			<div data-ng-repeat="msg in messages track by msg.noteId">
+				<div data-pn-chat-message="msg" class="pn-chat__item" role="chatMessage"></div>
+			</div>
+		</div>
+	</div>
+	<div class="pn-chat__add" data-ng-class="{
+	'pn-chat__add_loading' : state.adding
+	}">
+		<textarea
+				name="newMessageText"
+				data-ng-model="newMessage.text"
+				data-keymaster="{'ctrl+enter, ⌘+enter':'addMessage()'}"
+				class="pn-field pn-field_textarea pn-chat__add-field"
+				autocomplete="off"
+				placeholder="{{'chat_add_placeholder'|l10n}}"
+				role="addMessageField"
+				></textarea>
+
+		<div class="pn-chat__submit-wrap">
+			<input type="button"
+			       class="pn-chat__submit pn-button"
+			       value="{{'send'|l10n}}"
+			       data-ng-click="addMessage()"/>
+		</div>
+	</div>
+</div>

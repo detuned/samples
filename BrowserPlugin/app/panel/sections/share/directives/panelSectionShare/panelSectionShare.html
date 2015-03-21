@@ -1,0 +1,28 @@
+<div id="pn-panel-share" class="pn-share">
+	<div class="pn-share__section">
+		<div class="pn-share__section-title" data-ng-bind="'share_page_with'|l10n"></div>
+		<div class="pn-share__list">
+			<div data-ng-repeat="item in networks"
+			     data-ng-click="share(item)"
+			     class="pn-share__item"
+			     data-ng-class="[
+					'pn-share__item_name-' + item.id
+				]"
+					>
+				<span class="pn-share__item-icon"></span>
+				<span class="pn-share__item-title" data-ng-bind="item.title"></span>
+			</div>
+		</div>
+	</div>
+	<div class="pn-share__section">
+		<div class="pn-share__section-title" data-ng-bind="'share_page_with_friends'|l10n"></div>
+		<textarea type="text" class="pn-field pn-field_textarea pn-field_small-font pn-share__rel-note" data-ng-model="friends.note" placeholder="{{'share_rel_note_placeholder'|l10n}}" data-ng-show="friends.bridge.list.length" data-keymaster="{'ctrl+enter, ⌘+enter':'onTextFieldSubmit()'}"></textarea>
+		<div data-relations-list
+		     data-bridge="friends.bridge"
+		     data-state-id="{{REL_STATES.FRIEND}}"
+		     data-custom-actions="[{ 'title':'send_page', 'action': shareWithFriends }]"
+		     data-show-select-all
+				></div>
+		<div class="pn-share__add-user"><span data-ng-bind="'share_add_friend_link'|l10n" data-ng-click="jumpToAddFriend()" class="pn-share__add-user-link"></span> <span data-ng-bind="'share_add_friend_note'|l10n"></span></div>
+	</div>
+</div>

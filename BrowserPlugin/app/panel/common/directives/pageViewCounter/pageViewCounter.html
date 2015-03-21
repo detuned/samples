@@ -1,0 +1,9 @@
+<span
+		data-ng-bind="getFormattedCounter()"
+		data-ng-show="counter > 0"
+		data-ng-attr-title="{{getCounterTitle()}}"
+		class="pn-panel-counter"
+		data-ng-class="[
+			'pn-panel-counter_level-' + getCounterLevel()
+		]"
+		></span>

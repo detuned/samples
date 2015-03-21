@@ -1,0 +1,11 @@
+<div
+		class="pn-menu__item"
+		data-ng-click="toggle()"
+		data-ng-class="{
+			'pn--menu__item_active' : isActive(),
+			'pn--menu__item_marked' : isMarked(),
+			'pn--menu__item_warned' : isWarned(),
+			'pn--menu__item_support-offline' : isSupportOffline,
+			'pn--menu__item_online-only' : ! isSupportOffline
+		}"
+		></div>

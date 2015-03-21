@@ -1,0 +1,33 @@
+<div id="pn-panel-tags" class="pn-tags">
+	<form class="pn-tags__form" data-ng-class="{ 'pn-tags__form_busy' : ! state.ready }">
+		<div class="pn-tags__form-core">
+			<div class="pn-tags__field-wrap">
+				<input type="text"
+				       name="pnPanelSectionTagsField"
+				       class="pn-field pn-tags__field"
+				       placeholder="{{'tags_add'|l10n}}"
+				       data-ng-model="autocomplete.value"
+				       data-typeahead="tag as tag for tag in autocomplete.suggest($viewValue)"
+				       data-typeahead-loading="state.tagLoading"
+				       data-typeahead-on-select="selectTag($item,$model,$label)"
+				       data-typeahead-min-length="0"
+				       autocomplete="off"
+				       role="tagsField"/>
+				<div class="pn-field__show-all"
+				     data-ng-click="autocomplete.toggleAll()"
+				     data-ng-show="hasAnyTags() && ( !autocomplete.value || autocomplete.value == ' ' )"></div>
+			</div>
+			<div class="pn-tags__tags-list pn-tags-list">
+				<span data-ng-repeat="tag in tags"
+				      class="pn-tag"
+				      data-ng-class="{
+				      'pn-tag_highlighted': isTagHighlighted( tag ),
+				      'pn-tag_new': isTagNew( tag )
+				      }"
+				      data-ng-click="searchByTag(tag)"
+				      ><span class="pn-tag__title" data-ng-bind="tag"></span><span
+						class="pn-tag__close" data-ng-click="removeTag($index)">×</span></span>
+			</div>
+		</div>
+	</form>
+</div>

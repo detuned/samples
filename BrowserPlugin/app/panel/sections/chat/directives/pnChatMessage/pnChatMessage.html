@@ -1,0 +1,50 @@
+<div class="pn-chat-message" data-ng-class="getClass()">
+	<div class="pn-chat-message__avatar" ><div class="pn-chat-message__avatar-img" data-ng-style="{'background-image':'url(' +  message.avatar + ')'}"></div></div>
+	<div class="pn-chat-message__header">
+		<div class="pn-chat-message__user"  title="{{getUserRelTitle()}}">
+			<div class="pn-chat-message__user-rel-action" data-hard-l10n="add_to_friends" data-ng-click="relAction()"></div>
+			<div class="pn-chat-message__user-name" data-ng-bind="getUserName()"></div>
+		</div>
+		<div class="pn-chat-message__time" data-live-diff="{{message.cre}}"></div>
+	</div>
+	<div class="pn-chat-message__body pn-chat-message__body_view" data-ng-show="! state.edit && ! state.deleting">
+		<div class="pn-chat-message__text"><div class="pn-chat-message__text-core" data-ng-bind-html="message.text|clearHtml|autolinker:{truncate:25}|nl2br"></div></div>
+		<div class="pn-chat-message__actions">
+			<div class="pn-chat-message__action pn-chat-message__action_edit" data-ng-show="message.isEditable" data-ng-click="switchEditMode( true )"></div>
+			<div class="pn-chat-message__action pn-chat-message__action_delete" data-ng-show="message.isDeletable" data-ng-click="switchDeletingMode( true )"></div>
+		</div>
+		<div class="pn-chat-message__social">
+			<div class="pn-chat-message__share" data-hard-l10n="share" data-ng-click="shareMessage()"></div>
+		</div>
+	</div>
+	<div class="pn-chat-message__body pn-chat-message__body_edit" data-ng-show="state.edit">
+		<div class="pn-chat-message__text">
+			<textarea
+					class="pn-field pn-field_textarea pn-chat-message__field"
+					data-keymaster="{'ctrl+enter, ⌘+enter':'onSubmit()'}"
+					autocomplete="off"
+			        data-ng-model="editMessage.text"
+			        role="textField"
+					></textarea>
+			<div class="pn-chat-message__submit">
+				<input type="button" data-ng-click="onSubmit()" class="pn-chat-message__submit pn-button pn-button_bright" value="{{'save'|l10n}}"/>
+				<input type="button" class="pn-chat-message__cancel pn-button pn-button_textual"
+				      value="{{'cancel'|l10n}}"
+				      data-ng-click="switchEditMode( false )"/>
+			</div>
+		</div>
+	</div>
+
+	<div class="pn-chat-message__body pn-chat-message__body_deleting" data-ng-show="state.deleting">
+		<div class="pn-chat-message__deleting">
+			<div class="pn-chat-message__deleting-text" data-ng-bind="'chat_delete_message_confirm'|l10n"></div>
+			<div class="pn-chat-message__deleting-submit">
+				<input type="button" data-ng-click="deleteMessage()" class="pn-chat-message__submit pn-button pn-button_warn" value="{{'delete'|l10n}}"/>
+				<input type="button" class="pn-chat-message__cancel pn-button pn-button_textual"
+				       value="{{'cancel'|l10n}}"
+				       data-ng-click="switchDeletingMode( false )"></span>
+			</div>
+		</div>
+	</div>
+
+</div>

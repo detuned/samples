@@ -1,0 +1,29 @@
+<div class="pn-note" data-ng-class="{
+	'pn-note_mode-edit': state.edit,
+	'pn-note_loading': state.loading
+}">
+	<div class="pn-note__mode pn-note__mode_view">
+		<div class="pn-note__text" data-ng-bind-html="note.text|clearHtml|autolinker|nl2br"></div>
+	</div>
+	<div class="pn-note__mode pn-note__mode_edit">
+		<div class="pn-note__form">
+			<textarea data-ng-model="editNote.text"
+			          data-keymaster="{'ctrl+enter, ⌘+enter':'onSubmit()'}"
+			          name="noteText"
+			          role="noteField"
+			          autocomplete="off"
+			          class="pn-field pn-field_textarea pn-note__field"></textarea>
+
+			<div class="pn-note__submit-wrap">
+				<input type="button" data-ng-click="onSubmit()" class="pn-note__submit pn-button" value="{{'save'|l10n}}"/>
+				<span class="pn-note__cancel pn-button pn-button_textual"
+				      data-ng-bind="'cancel'|l10n"
+				      data-ng-click="switchEditMode(false)"></span>
+			</div>
+		</div>
+		<span class="pn-note__action pn-note__action_delete" data-ng-click="deleteNote()"></span>
+	</div>
+	<div class="pn-note__actions">
+		<span class="pn-note__action pn-note__action_edit" data-ng-click="switchEditMode()"></span>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+<div class="pn-reopen-task" data-ng-class="{
+	'pn-reopen-task_loading': state.loading,
+	'pn-reopen-task_passed': task.passed,
+	'pn-reopen-task_with-note': task.data.src.note
+}">
+	<div class="pn-reopen-task__mode pn-reopen-task__mode_view">
+		<div class="pn-reopen-task__summary">
+			<div class="pn-reopen-task__summary-start" data-ng-bind="summaryStart"></div>
+			<div class="pn-reopen-task__summary-repeat" data-ng-bind="summaryRepeat" data-ng-show="summaryRepeat"></div>
+			<div class="pn-reopen-task__note" data-ng-bind="task.data.src.note" data-ng-show="task.data.src.note"></div>
+		</div>
+	</div>
+	<div class="pn-reopen-task__actions">
+		<span class="pn-reopen-task__action pn-reopen-task__action_delete" data-ng-click="deleteTask()"></span>
+	</div>
+</div>

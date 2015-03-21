@@ -1,0 +1,41 @@
+<div id="pn-panel-search" class="pn-search" data-ng-class="{'pn-search_loading' : state.loading }">
+	<div class="pn-search__form" data-ng-class="{ 'pn-search__form_busy' : ! state.ready }">
+		<div class="pn-search__form-core">
+			<div class="pn-field pn-field_search pn-search__field">
+				<input type="text"
+				       name="pnPanelSectionSearchField"
+				       class="pn-field__inner"
+				       placeholder="{{'search_placeholder'|l10n}}"
+				       data-ng-model="autocomplete.value"
+				       data-typeahead="tag as tag for tag in autocomplete.suggest($viewValue)"
+				       data-typeahead-loading="state.tagLoading"
+				       data-typeahead-on-select="selectTag($item,$model,$label)"
+				       data-typeahead-min-length="0"
+				       autocomplete="off"
+				       data-enter-press="search()"
+				       role="searchField"/>
+				<div class="pn-field__show-all"
+				     data-ng-click="autocomplete.toggleAll()"
+				     data-ng-show="hasAnyTags() && ( !autocomplete.value || autocomplete.value == ' ' )"></div>
+			</div>
+			<div class="pn-tags__tags-list pn-tags-list">
+				<span data-ng-repeat="tag in tags"
+				      class="pn-tag"
+				      data-ng-class="{'pn-tag__highlight': isTagHighlighted( tag )}"
+				      data-ng-click="removeTag($index)"><span class="pn-tag__title" data-ng-bind="tag"></span><span
+						class="pn-tag__close">×</span></span>
+			</div>
+		</div>
+	</div>
+	<div class="pn-search__list pn-search-list" data-panel-scrollable-area>
+		<a data-ng-href="{{item.url}}" class="pn-search-item" data-ng-repeat="item in results" target="_blank">
+			<span class="pn-search-item__main">
+				<span class="pn-search-item__title" data-ng-bind="item.title||item.url"></span>
+				<span class="pn-search-item__url" data-ng-bind="item.url|clearUrl"></span>
+			</span> </a>
+		<div class="pn-search__empty" data-ng-show="! results.length && ! state.loading">
+			<div class="pn-search__empty-msg" data-ng-bind="'nothing_found'|l10n"></div>
+			<div class="pn-search__empty-msg-details" data-ng-show="autocomplete.value" data-ng-bind="'search_try_to_change_request'|l10n"></div>
+		</div>
+	</div>
+</div>
