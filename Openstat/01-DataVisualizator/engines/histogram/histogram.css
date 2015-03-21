@@ -1,0 +1,256 @@
+.histogram{
+	position:relative;
+	margin:12px 30px 25px 40px;
+	height:211px;
+	border:1px solid #C4C5C5;
+	visibility:visible;
+	background:#F8F8F8;
+	}
+	.histogram:after{
+		content:' ';
+		display:block;
+		clear:both;
+		overflow:hidden;
+		height:0;
+		visibility:hidden
+		}
+	.histogram-sections-wrap{
+		position:relative;
+		z-index:2;
+		width:100%;
+		height:100%;
+		}
+	/* Grid */
+		.histogram-grid{
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			z-index:1;
+			}
+		.histogram-grid-line{
+			position:absolute;
+			left:-5px;
+			right:0;
+			height:1px;
+			background:#E6E6E6;
+			}
+		.histogram-grid-line-caption{
+			display:block;
+			position:absolute;
+			top:50%;
+			left:0;
+			width:25px;
+			margin:-0.6em 0 0 -30px;
+			white-space:nowrap;
+			overflow:hidden;
+			font-size:0.85em;
+			text-align:right;
+			color:#09F;
+			}
+		.histogram-y-axis-caption{
+			display:block;
+			position:absolute;
+			top:0;
+			left:0;
+			margin:0 0 0 -35px;
+			width:25px;
+			white-space:nowrap;
+			overflow:hidden;
+			text-align:right;
+			font-size:0.9em;
+			color:#000;
+			}
+			
+	/* Axis names */
+		.histogram-axis-name{
+			display:block;
+			position:absolute;
+			font-size:0.9em;
+			}
+		.histogram-axis-x-name{
+			bottom:-3.2em;
+			right:0;
+			}
+		.histogram-axis-y-name{
+			top:-1.4em;
+			left:-19px;
+			}
+	/* Section */
+		.histogram-section{
+			float:left;
+			position:relative;
+			height:100%;
+			}
+			
+		.histogram-section-title{
+			position:absolute;
+			top:100%;
+			right:5px;
+			left:5px;
+			margin:5px 0 0;
+			text-align:center;
+			white-space:nowrap;
+			overflow:hidden;
+			font-size:0.9em;
+			color:#09F;
+			}
+			.histogram-section-title:after{
+				display:block;
+				position:absolute;
+				top:0;
+				right:0;
+				bottom:0;
+				width:5px;
+				content:' ';
+				background-image:-moz-linear-gradient(0, rgba(255,255,255,0),rgba(255,255,255,1));
+				background-image:-webkit-linear-gradient(0, rgba(255,255,255,0),rgba(255,255,255,1));
+				}
+		.histogram-section-metatitle{
+			position:absolute;
+			top:100%;
+			left:5px;
+			margin:2.4em 0 0;
+			text-align:left;
+			white-space:nowrap;
+			font-size:0.9em;
+			font-weight:bold;
+			color:#000;	
+			}
+		.histogram-section-canvas{
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			border-right:1px solid #E6E6E6;
+			}
+			.histogram-section--last .histogram-section-canvas,
+			.histogram-section--skip .histogram-section-canvas{
+				border-right:none;
+				}
+		.histogram-section-bar{
+			display:block;
+			position:absolute;
+			bottom:0;
+			box-shadow:inset -1px -1px 1px rgba(0,0,0,0.1);
+			-webkit-border-radius:1px 1px 0 0;
+			-moz-border-radius:1px 1px 0 0;
+			border-radius:1px 1px 0 0;
+			/* background-image:-moz-linear-gradient(-90deg, rgba(255,255,255,0.5),rgba(255,255,255,0.1));
+			background-image:-webkit-linear-gradient(-90deg, rgba(255,255,255,0.5),rgba(255,255,255,0.1)); */
+			-moz-transition-property:background-image;
+			-moz-transition-duration:0.3s;
+			-moz-transition-timing-function:ease;
+			-webkit-transition-property:background-image;
+			-webkit-transition-duration:1s;
+			-webkit-transition-timing-function:ease;				
+			}
+			.histogram-section-bar:after{
+				display:block;
+				position:absolute;
+				top:0;
+				right:0;
+				bottom:0;
+				left:0;
+				box-shadow:inset 2px 2px 1px rgba(255,255,255,0.1);
+				content:' ';
+				}
+			.histogram-section-canvas:hover .histogram-section-bar{
+				background-image:-webkit-linear-gradient(-90deg, rgba(255,255,255,0.6),rgba(255,255,255,0.1));
+				background-image:-moz-linear-gradient(-90deg, rgba(255,255,255,0.6),rgba(255,255,255,0.1));
+				}
+		.histogram-section-bar-caption{
+			display:block;
+			position:absolute;
+			top:-1.5em;
+			right:-5px;
+			left:-5px;
+			text-align:center;
+			font-weight:bold;
+			}
+				
+		/* Bar parts */
+			.histogram-section-bar-part{
+				position:absolute;
+				width:100%;
+				overflow:hidden;
+				}
+	/* Balloon */
+		.histogram-balloon{
+			display:block;
+			position:absolute;
+			z-index:1000;
+			padding:5px 10px 10px;
+			border:1px solid #000;
+			-webkit-border-radius:5px;
+			-moz-border-radius:5px;
+			border-radius:5px;
+			-webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+			-moz-box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+			-ms-box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+			box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+			min-width:50px;
+			min-height:20px;
+			background:#FFF;
+			background:rgba(255,255,255,0.8);
+			color:#000;
+			}
+			.histogram-balloon-title{
+				margin:-5px -10px 0.5em -10px;
+				padding:5px 10px 5px;
+				-webkit-border-radius:5px 5px 0 0;
+				-moz-border-radius:5px 5px 0 0;
+				border-radius:5px 5px 0 0;
+				font-size:0.9em;
+				font-weight:bold;
+				background:#FDFDA1;
+				background:rgba(254,254,70,0.5);
+				}
+			.histogram-balloon-text{
+				margin:0;
+				padding:0;
+				}
+		.histogram-balloon-set-title{
+			display:inline-block;
+			width:10em;
+			overflow:hidden;
+			}
+	
+	/* Histogram | type:structural */
+		.histogram-type-structural{
+			}
+			.histogram-type-structural .histogram-section-bar{
+				background:#DEDEDE;
+				}
+				
+	/* Histogram | mode:with-meta-captions */
+		.histogram-with-meta-captions{
+			height:190px;
+			}
+			
+			
+/* Linechart in histogram */
+	.histogram-linecharts-wrap{
+		position:absolute;
+		z-index:2;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		}
+			
+/* IE7 */
+	*:first-child+HTML .histogram{
+		}	
+		
+/* IE6 */
+	* HTML .histogram{
+		}
+	* HTML .histogram-grid-line{
+		width:100%;	
+		}
+	* HTML .histogram-section-title{
+		width:90%;
+		}

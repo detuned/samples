@@ -1,0 +1,3 @@
+Openstat-family websites built from independent blocks. Each of them work in its own HTML-container and usually designed for one particular task. 
+
+Here it is a couple of examples how such blocks look in source code. Each block is a separate AngularJS module.

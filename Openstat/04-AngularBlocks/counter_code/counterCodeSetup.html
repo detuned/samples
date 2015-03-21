@@ -1,0 +1,55 @@
+<div data-osb="code-setup">
+	<label class="osb-counter_code-e-visible">
+		<input type="checkbox" name="type" data-ng-model="codeData.visible" class="osb-counter_code-e-visible-field"/><span class="osb-counter_code-e-visible-caption"
+			data-ng-bind="'-counterview-with-img'|l10n"></span>
+	</label>
+	<div class="osb-counter_code-e-button-select cleared" data-ng-show="codeData.visible">
+		<div class="osb-counter_code-e-button">
+			<ul class="osb-counter_code-e-button-list">
+				<li data-ng-repeat="button in buttons" class="osb-counter_code-e-button-item" data-ng-class="{'osb-counter_code-e-button-item-m-active':$index == codeData.buttonIndex }"><label class="osb-counter_code-e-button-label">
+						<input type="radio" data-ng-model="codeData.buttonIndex" value="{{$index}}" name="button" class="osb-counter_code-e-button-field"/>
+						<span data-counter-code-image="button" data-code-data="codeData" class="osb-counter_code-e-button-img-holder"></span>
+					</label></li>
+			</ul>
+		</div>
+		<div class="osb-counter_code-e-select-bg">
+			<div class="osb-counter_code-e-select-bg-core">
+				<div class="osb-counter_code-e-bg-standard">
+					<h3 class="osb-counter_code-e-select-bg-standard-title" data-ng-bind="'-counterview-bg-standard-title'|l10n"></h3>
+
+					<div class="osb-counter_code-e-select-bg-standard-body">
+						<ul class="osb-counter_code-e-bg-standard-list">
+							<li data-ng-repeat="color in colors" class="osb-counter_code-e-select-bg-standard-item"
+									data-ng-class="{'osb-counter_code-e-select-bg-standard-item-m-selected':color == codeData.color}" data-ng-click="codeData.color = color">
+								<span class="osb-counter_code-e-bg-standard-color" data-ng-style="{'background':'#' + color}" data-ng-bind="$index+1"></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="osb-counter_code-e-select-bg-custom hidden">
+					<h4 class="osb-counter_code-e-select-bg-custom-title">
+						<span class="pseudo-link js-link" data-ng-bind="'-counterview-bg-custom-title'|l10n"></span>
+					</h4>
+
+					<div class="osb-counter_code-e-select-bg-custom-body hidden">
+						<div class="osb-counter_code-e-select-bg-custom-picker">
+							<div class="osb-counter_code-e-select-bg-custom-picker-body"></div>
+							<div class="osb-counter_code-e-select-bg-custom-picker-field-wrap">
+								<label><span>#</span><input type="text" name="osb-counter_code-e-select-bg-custom-result" class="osb-counter_code-e-select-bg-custom-picker-field" maxlength="6"/></label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="osb-counter_code-e-select-bg-controls cleared">
+					<div class="osb-counter_code-e-select-bg-control-fontcolor-wrap">
+						<label><input type="radio" name="fontlight" data-ng-model="codeData.fontLight" value="0"/><span data-ng-bind="'-counterview-bg-font-color-dark-title-full'|l10n"> </span></label>
+						<label><input type="radio" name="fontlight" data-ng-model="codeData.fontLight" value="1"/><span data-ng-bind="'-counterview-bg-font-color-light-title-full'|l10n"></span></label>
+					</div>
+					<div class="osb-counter_code-e-select-bg-control-gradient-wrap">
+						<label><input type="checkbox" name="gradient" data-ng-model="codeData.gradient"/><span data-ng-bind="'-counterview-bg-gradient-title'|l10n"></span></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

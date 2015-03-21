@@ -1,0 +1,47 @@
+.osb-nano_histogram{
+	}
+
+/* e:list */
+	.osb-nano_histogram-e-list{
+		height:15px;
+		white-space:nowrap;
+		text-align:center;
+		}
+
+/* e:item */
+	.osb-nano_histogram-e-item{
+		position:relative;
+		display:inline-block;
+		padding:0 2px;
+		width:1px;
+		height:100%;
+		-webkit-transition:height 0.2s;
+		-moz-transition:height 0.2s;
+		-ms-transition:height 0.2s;
+		-o-transition:height 0.2s;
+		transition:height 0.2s;
+		}
+		.osb-nano_histogram-m-inactive .osb-nano_histogram-e-item{
+			height:0 !important;
+			}
+/* e:bar */
+	.osb-nano_histogram-e-bar{
+		display:block;
+		position:absolute;
+		bottom:0;
+		left:3px;
+		width:1px;
+		background:#A0A0A0;
+		}
+		.osb-nano_histogram-e-item:last-child .osb-nano_histogram-e-bar{
+			background:#282828;
+			}
+/* e:value */
+	.osb-nano_histogram-e-value{
+		display:none;
+		}
+
+/* e:title */
+	.osb-nano_histogram-e-title{
+		display:none;
+		}

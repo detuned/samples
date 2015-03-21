@@ -1,0 +1,186 @@
+	.osb-counter_code-e-visible{
+		color:#363636;
+		font-size:1.15em;
+		}
+		.osb-counter_code-e-visible-field{
+			vertical-align:middle;
+			margin:0 6px 0 0;
+			}
+		.osb-counter_code-e-visible-caption{
+			vertical-align:middle;
+			}
+	.osb-counter_code-e-button-select{
+		padding:15px 0 0;
+		}
+	.osb-counter_code-e-button{
+		}
+	.osb-counter_code-e-button-list{
+		margin:0 0 0 -10px;
+		padding:0 0 3px;
+		min-height:31px;
+		line-height:4;
+		}
+		.osb-counter_code-e-button-item{
+			display:inline-block;
+			vertical-align:top;
+			margin:0 24px 6px 0;
+			}
+			.osb-counter_code-e-button-item-m-active{
+				box-shadow:inset 0 0 2px rgba(0,0,0,0.2);
+				background:rgba(255,255,255,0.7);
+				}
+			.osb-counter_code-e-button-field{
+				vertical-align:middle;
+				margin:0 3px 0 0;
+				}
+			.osb-counter_code-e-button-label{
+				float:none;
+				display:block;
+				padding:3px 18px 3px 8px;
+				text-align:left;
+				}
+			.osb-counter_code-e-button-img-holder{
+				vertical-align:middle;
+				}
+				.osb-counter_code-e-button-img-holder IMG{
+					vertical-align:middle;
+					}
+
+	/* Button select bg*/
+		.osb-counter_code-e-select-bg{
+			overflow:hidden;
+			margin:0 0 15px;
+			font-size:1.15em;
+			}
+			.osb-counter_code-e-select-bg-core{
+				margin:24px 0 0;
+				}
+	/* Button select bg standard */
+		.osb-counter_code-e-bg-standard{
+			width:230px;
+			display:inline-block;
+			vertical-align:top;
+			margin:0 24px 6px 0;
+			padding-left:5px;
+			}
+			.osb-counter_code-e-select-bg-standard-title{
+				margin:0 0 5px;
+				font-size:1em;
+				font-weight:normal;
+				}
+			.osb-counter_code-e-select-bg-standard-body{
+				margin-left:-5px;
+				}
+				.osb-counter_code-e-select-bg-standard-body-list{
+					margin:0 -4px;
+					}
+				.osb-counter_code-e-select-bg-standard-item{
+					display:inline-block;
+					padding:3px;
+					border:1px solid transparent;
+					cursor:pointer;
+					}
+					.osb-counter_code-e-select-bg-standard-item:hover{
+						border-color:rgba(0,0,0,0.25);
+						}
+					.osb-counter_code-e-select-bg-standard-item-m-selected{
+						border-color:rgba(0,0,0,0.3);
+						}
+				.osb-counter_code-e-bg-standard-color{
+					display:block;
+					width:19px;
+					height:19px;
+					text-indent:-10000px;
+					}
+
+			/* Button select bg custom */
+			.osb-counter_code-e-select-bg-custom{
+				margin:0 0 24px;
+				}
+				.osb-counter_code-e-select-bg-custom-title{
+					margin:0 0 7px;
+					font-size:1em;
+					}
+					.osb-counter_code-e-select-bg-custom-title .js-link{
+						font-weight:normal;
+						}
+				.osb-counter_code-e-select-bg-custom-body{
+					display:block;
+					}
+
+				/* Button select bg color picker */
+					.osb-counter_code-e-select-bg-custom-picker{
+						margin:0 0 20px;
+						padding:13px 8px;
+						background:#E4E4E4;
+						}
+					.osb-counter_code-e-select-bg-custom-picker-body{
+						margin:0 0 13px;
+						min-height:160px;
+						}
+					.osb-counter_code-e-select-bg-custom-picker-field-wrap{
+						padding:0 20px;
+						}
+						.osb-counter_code-e-select-bg-custom-picker-field-wrap LABEL{
+
+							}
+							.osb-counter_code-e-select-bg-custom-picker-field-wrap LABEL SPAN{
+								margin:0 5px 0 0;
+								vertical-align:middle;
+								color:#616961;
+								}
+					.osb-counter_code-e-select-bg-custom-picker-field{
+						width:130px;
+						border:1px solid #ACAAB0;
+						}
+						.osb-counter_code-e-select-bg-custom-picker-field.fielderror{
+							border:1px solid #F00;
+							}
+					.osb-counter_code-e-select-bg-custom-picker-field-light{
+						color:#FFF;
+						}
+				/* Button select bg custom controls */
+					.osb-counter_code-e-select-bg-controls{
+						display:inline-block;
+						vertical-align:top;
+						padding:24px 0 12px;
+						}
+					/* Button select bg custom controls | field:gradient */
+						.osb-counter_code-e-select-bg-control-gradient-wrap{
+							display:inline-block;
+							vertical-align:top;
+							margin:0 24px 0 0;
+							}
+							.osb-counter_code-e-select-bg-control-gradient-wrap LABEL{
+								}
+								.osb-counter_code-e-select-bg-control-gradient-wrap LABEL SPAN{
+									margin:0 0 0 5px;
+									vertical-align:middle;
+									}
+							.osb-counter_code-e-select-bg-control-gradient-wrap INPUT{
+								margin:0;
+								vertical-align:middle;
+								}
+					/* Button select bg custom controls | field:fontcolor */
+						.osb-counter_code-e-select-bg-control-fontcolor-wrap{
+							display:inline-block;
+							vertical-align:top;
+							margin:0 24px 0 0;
+							}
+							.osb-counter_code-e-select-bg-control-fontcolor-wrap LABEL{
+								display:block;
+								vertical-align:top;
+								margin:0 0 3px 0;
+								}
+								.osb-counter_code-e-select-bg-control-fontcolor-wrap LABEL SPAN{
+									vertical-align:middle;
+									}
+							.osb-counter_code-e-select-bg-control-fontcolor-wrap INPUT{
+								vertical-align:middle;
+								margin:0 6px 0 0;
+								}
+						.osb-counter_code-e-select-bg-control-fontcolor-title{
+							margin:2px 0 0;
+							font-weight:normal;
+							font-size:1em;
+							}

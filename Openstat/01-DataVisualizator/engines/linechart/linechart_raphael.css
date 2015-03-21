@@ -1,0 +1,38 @@
+/* Jschart balloon */
+	.jschart-balloon{
+		display:block;
+		position:absolute;
+		z-index:1000;
+		padding:5px 10px 10px;
+		border:1px solid #000;
+		-webkit-border-radius:5px;
+		-moz-border-radius:5px;
+		border-radius:5px;
+		-webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+		-moz-box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+		-ms-box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+		box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+		-moz-transition:top,left 0.3s;
+		-webkit-transition:top,left 0.3s;
+		transition:top,left 0.3s;
+		min-width:50px;
+		min-height:20px;
+		background:#FFF;
+		background:rgba(255,255,255,0.8);
+		color:#000;
+		}
+		.jschart-balloon-title{
+			margin:-5px -10px 0.5em -10px;
+			padding:5px 10px 5px;
+			-webkit-border-radius:5px 5px 0 0;
+			-moz-border-radius:5px 5px 0 0;
+			border-radius:5px 5px 0 0;
+			font-size:0.9em;
+			font-weight:bold;
+			background:#FDFDA1;
+			background:rgba(254,254,70,0.5);
+			}
+		.jschart-balloon-text{
+			margin:0;
+			padding:0;
+			}
